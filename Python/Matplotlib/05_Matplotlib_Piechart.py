@@ -50,3 +50,8 @@ print("Available Styles:\n", plt.style.available)
 
 # 5. Apply a Predefined Style
 plt.style.use('fivethirtyeight')
+
+
+
+# save figure
+plt.savefig("sample.png")
