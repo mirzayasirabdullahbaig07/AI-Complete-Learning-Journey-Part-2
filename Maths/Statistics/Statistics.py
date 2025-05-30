@@ -143,3 +143,4 @@
  # 2- u basically findingt the location of an observation
  # 3- they are not actual values in the data
  # 4- all other tiles can be easily dervied from percentiles
+# this is important things to be learn
