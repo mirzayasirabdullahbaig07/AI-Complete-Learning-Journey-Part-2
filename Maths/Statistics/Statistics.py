@@ -118,3 +118,28 @@
 
 # 3. Categorical vs Numerical:
 #    - Use bar charts to compare numerical values across categories.
+
+
+
+# what is quantiles and what is percentiles
+
+# Quantiles are statistical measures used to divide a set of numerical data into equal-sized groups, with each group containing an equal number of observations.
+
+# Quantiles are important measures of variability and can be used to: understand distribution of data, summarize and compare different datasets. They can also be used to identify outliers.
+
+# There are several types of quantiles used in statistical analysis, including:
+
+# a. Quartiles: Divide the data into four equal parts, Q1 (25th percentile), Q2 (50th percentile or median), and Q3 (75th percentile).
+
+# b. Deciles: Divide the data into ten equal parts, D1 (10th percentile), D2 (20th percentile), ..., D9 (90th percentile).
+
+# c. Percentiles: Divide the data into 100 equal parts, P1 (1st percentile), P2 (2nd percentile), ..., P99 (99th percentile).
+
+# d. Quintiles: Divides the data into 5 equal parts.
+
+
+# things to remember while calculating these measures:
+ # 1- data should be sorted from low to high
+ # 2- u basically findingt the location of an observation
+ # 3- they are not actual values in the data
+ # 4- all other tiles can be easily dervied from percentiles
