@@ -143,4 +143,60 @@
  # 2- u basically findingt the location of an observation
  # 3- they are not actual values in the data
  # 4- all other tiles can be easily dervied from percentiles
-# this is important things to be learn
+# 
+
+# How to calculate percentile?
+
+# A percentile is a statistical measure that represents the percentage of observations 
+# in a dataset that fall below a particular value.
+# For example: the 75th percentile is the value below which 75% of the data lies.
+
+# Formula to find the location (PL) of a percentile:
+# PL = (P / 100) * (N + 1)
+
+# Where:
+# PL = Percentile Location (position in the sorted dataset)
+# P  = Desired percentile (e.g., 75 for 75th percentile)
+# N  = Total number of observations in the dataset
+
+# Example: Find the 75th percentile from this data:
+# Data = [78, 83, 82, 88, 91, 93, 94, 99, 98, 96]
+
+# Step 1: Sort the data in ascending order
+# Sorted = [78, 82, 84, 88, 91, 93, 94, 96, 98, 99]
+# Index =   1   2   3   4   5   6   7   8   9   10
+
+# Step 2: Use the formula
+# PL = (75 / 100) * (10 + 1) = 8.25
+# This means the 75th percentile lies 25% of the way between the 8th and 9th values
+
+# Step 3: Interpolate
+# 8th value = 96, 9th value = 98
+# 96 + 0.25 * (98 - 96) = 96 + 0.5 = 96.5
+
+# 75th percentile = 96.5
+
+# -------------------------------------------------------
+
+# How to find the percentile **rank** of a value?
+
+# Formula:
+# Percentile Rank = (x + 0.5 * y) / N * 100
+
+# Where:
+# x = Number of values below the given value
+# y = Number of values equal to the given value
+# N = Total number of values in the dataset
+
+# Example: What is the percentile rank of the value 88?
+
+# Data (sorted): [78, 82, 84, 88, 91, 93, 94, 96, 98, 99]
+# Values below 88 = 3 (78, 82, 84) → x = 3
+# Values equal to 88 = 1 → y = 1
+# Total values = 10 → N = 10
+
+# Percentile Rank = (3 + 0.5 * 1) / 10 * 100
+#                 = 3.5 / 10 * 100
+#                 = 35%
+
+# Percentile rank of 88 is **35%**
