@@ -16,34 +16,6 @@ This repository is a **learning hub** where I document:
 
 ---
 
-## 🧩 Repository Structure
-
-```
-AI-ML-Learning-Journey/
-├── Python-Libraries/
-│   ├── NumPy/
-│   ├── Pandas/
-│   ├── Matplotlib/
-│   ├── Seaborn/
-│   └── Scikit-Learn/
-│
-├── Machine-Learning-Concepts/
-│   ├── Supervised-Learning/
-│   ├── Unsupervised-Learning/
-│   ├── Feature-Engineering/
-│   ├── Model-Evaluation/
-│   └── Hyperparameter-Tuning/
-│
-├── Real-Time-Projects/
-│   ├── Project-01-Title/
-│   ├── Project-02-Title/
-│   └── ...
-│
-└── README.md
-```
-
----
-
 ## 📌 Learning Phases
 
 ### ✅ Python Libraries
