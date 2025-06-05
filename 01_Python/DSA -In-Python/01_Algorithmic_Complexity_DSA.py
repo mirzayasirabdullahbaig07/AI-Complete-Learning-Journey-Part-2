@@ -274,3 +274,45 @@ def fact_iter(n):
 
 # Avoid for large inputs: O(n²) and worse
 # → Only acceptable for small data sets or unavoidable use cases
+
+
+# 18 qs to understand the order of growth
+
+# 01- Program 
+
+L = [1,2,3,4,5]
+
+sum = 0
+for i in L:
+    sum = sum+i
+print(sum)
+
+product = 1
+for i in L:
+    product = product*i
+print(product)
+
+# 0(n) + 0(n) = 0(n + n) = 0(2n) - 2 is constant so remaining is 0(n)
+# the time complexity is linear - if input become double the size will also double
+
+# program 2
+L = [1,2,3,4,5]
+for i in L:
+    for j in L:
+        print( '({},{})'.format(i, j))
+# as both are nested loops they will multiply = 0(n)* 0(n) = 0(n2)
+# as size of array increase it take 4 times more time - this is quadartic expression
+
+# program - linear search - if array doubles time doubles
+
+def intToStr(i):
+    digits = '0123456'
+    if i == 0:
+        return '0'
+    result = ''
+    while i > 0:
+        result = digits[i%10] + result
+        i = i//10
+        return result
+
+
