@@ -265,54 +265,211 @@ def fact_iter(n):
 # Avoid at all costs unless n is extremely small (like 5–10).
 
 
-# Which is best in DSA & programming?
-# Best: O(1), O(log n), O(n)
-# → Scalable and efficient
+# ---------------------------------------------
+# DSA & Programming: Understanding Time Complexity
+# ---------------------------------------------
 
-# Good in practice: O(n log n)
-# → Used in many real-world problems like sorting
+# Best Time Complexities: O(1), O(log n), O(n)
+# → Highly scalable and efficient
 
-# Avoid for large inputs: O(n²) and worse
-# → Only acceptable for small data sets or unavoidable use cases
+# Good in Practice: O(n log n)
+# → Common in real-world problems like sorting
+
+# Avoid for Large Inputs: O(n²) and worse
+# → Acceptable only for small data sets or if unavoidable
 
 
-# 18 qs to understand the order of growth
+# ---------------------------------------------
+# 18 Programs to Understand Order of Growth
+# ---------------------------------------------
 
-# 01- Program 
-
-L = [1,2,3,4,5]
+# Program 1: Sum and Product of List Elements
+L = [1, 2, 3, 4, 5]
 
 sum = 0
 for i in L:
-    sum = sum+i
+    sum += i
 print(sum)
 
 product = 1
 for i in L:
-    product = product*i
+    product *= i
 print(product)
 
-# 0(n) + 0(n) = 0(n + n) = 0(2n) - 2 is constant so remaining is 0(n)
-# the time complexity is linear - if input become double the size will also double
+# Time Complexity: O(n) + O(n) = O(2n) → O(n)
+# Linear time — if input doubles, time also doubles
 
-# program 2
-L = [1,2,3,4,5]
+
+# Program 2: Nested Loops — Cartesian Product
+L = [1, 2, 3, 4, 5]
 for i in L:
     for j in L:
-        print( '({},{})'.format(i, j))
-# as both are nested loops they will multiply = 0(n)* 0(n) = 0(n2)
-# as size of array increase it take 4 times more time - this is quadartic expression
+        print('({}, {})'.format(i, j))
 
-# program - linear search - if array doubles time doubles
+# Time Complexity: O(n²)
+# Quadratic — 2 nested loops → performance drops fast with input growth
 
+
+# Program 3: Linear Search
+# Time Complexity: O(n)
+# Example: doubling array size doubles time
+
+# Program 4: int to string conversion (logarithmic)
 def intToStr(i):
-    digits = '0123456'
+    digits = '0123456789'
     if i == 0:
         return '0'
     result = ''
     while i > 0:
-        result = digits[i%10] + result
-        i = i//10
-        return result
+        result = digits[i % 10] + result
+        i = i // 10
+    return result
+
+# Time Complexity: O(log n)
+# Because the number is divided by 10 in each iteration
 
 
+# Program 5: Nested Loop with log time inner loop
+n = 1000
+i = n // 3
+while i <= n:
+    j = 2
+    while j < n:
+        k = n // 2
+        j *= 2
+    i += 1
+
+# Time Complexity: O(n log n)
+# Outer loop = O(n), Inner loop = O(log n)
+
+
+# Program 6: Binary Search (Divide and Conquer)
+# Time Complexity: O(log n)
+# Every step reduces the problem size by half
+
+
+# Program 7: Nested Loops over List
+L = [1, 2, 3, 4, 5]
+for i in range(len(L)):
+    for j in range(i + 1, len(L)):
+        print('({}, {})'.format(L[i], L[j]))
+
+# Time Complexity: O(n²)
+# Nested loops — upper triangle of combinations
+
+
+# Program 8: Compare elements from two different arrays
+A = [1, 2, 3, 4]
+B = [2, 3, 4, 5, 6]
+for i in A:
+    for j in B:
+        if i < j:
+            print('({}, {})'.format(i, j))
+
+# Time Complexity: O(n²)
+# Nested loops with same size input → quadratic
+
+
+# Program 9: Triple Nested Loops
+A = [1, 2, 3, 4]
+B = [2, 3, 4, 5]
+for i in A:
+    for j in B:
+        for k in range(100000):
+            print('({}, {})'.format(i, j))
+
+# Time Complexity: O(n² * k) → Constant loop k → Still O(n²)
+
+
+# Program 10: Reverse a List
+L = [1, 2, 3, 4, 5]
+for i in range(0, len(L) // 2):
+    other = len(L) - i - 1
+    temp = L[i]
+    L[i] = L[other]
+    L[other] = temp
+print(L)
+
+# Time Complexity: O(n)
+# Single loop over half the list — linear
+
+
+# Program 11: Recursive Factorial
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print(factorial(5))
+
+# Time Complexity: O(n)
+# One recursive call per input unit
+
+
+# Program 12: Recursive Fibonacci (naive)
+def fib(n):
+    if n == 1 or n == 0:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+# Time Complexity: O(2^n)
+# Exponential — repeated subproblems, not efficient
+
+
+# Program 13: Logarithmic Power Calculation
+def power(num):
+    if num < 1:
+        return 0
+    elif num == 1:
+        print(1)
+        return 1
+    else:
+        prev = power(num // 2)
+        curr = prev * 2
+        print(curr)
+        return curr
+power(45)
+
+# Time Complexity: O(log n)
+# Number gets halved every call
+
+
+# Program 14: Modulo without %
+def mod(a, b):
+    if b <= 0:
+        return -1
+    div = a // b
+    return a - div * b
+mod(2, 4)
+
+# Time Complexity: O(1)
+# Simple arithmetic — constant time
+
+
+# Program 15: Sum of Digits
+def sum_digits(num):
+    sum = 0
+    while num > 0:
+        sum += num % 10
+        num //= 10
+    return sum
+sum_digits(123)
+
+# Time Complexity: O(log n)
+# Number of digits = log(n), since base is 10
+
+
+# Program 16: Exponential Recurrence Relation
+# T(n) = 3T(n-1) + constant → Time Complexity: O(3^n)
+
+
+# Program 17: Another Recurrence Relation
+# T(n) = 2T(n-1) - 1 → Time Complexity: O(2^n)
+
+
+# Program 18: Generating Power Set
+# Example: [1, 2, 3]
+# Output: [], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]
+# Time Complexity: O(2^n)
+# Exponential — each element either included or not
