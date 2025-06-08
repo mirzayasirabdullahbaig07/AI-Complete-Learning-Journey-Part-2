@@ -30,3 +30,27 @@ int_value = 98
 print("5. Binary:", bin(int_value))
 print("5. Octal:", oct(int_value))
 print("5. Hexadecimal:", hex(int_value))
+
+# 6.	Write a program to check the data type of user input.
+
+# 7.	Multiply a string by a number and display the result.
+multiply_string = "yasir"
+print(multiply_string*2)
+# 8.	Concatenate integer and string types after conversion.
+
+# 9.	Store and print your age using a variable.
+
+# 10.	Check if a variable is of type int.
+
+# 11.	Convert a number into a string and add it to another string.
+
+# 12.	Write a program to accept your name and roll number and display them.
+
+# 13.	Check whether the input is an integer or a float.
+
+# 14.	Take input from the user and print it in reverse order.
+
+# 15.	Display the memory address of a variable.
+variable_memory = [1,2,3,4,5]
+print(id(variable_memory))
+
