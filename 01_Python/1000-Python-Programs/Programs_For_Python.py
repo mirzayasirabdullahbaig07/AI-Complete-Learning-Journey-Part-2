@@ -31,26 +31,60 @@ print("5. Binary:", bin(int_value))
 print("5. Octal:", oct(int_value))
 print("5. Hexadecimal:", hex(int_value))
 
-# 6.	Write a program to check the data type of user input.
+# 6. Write a program to check the data type of user input.
+user_input = input("Enter something: ")
+print("Data type of input is:", type(user_input))  # always str unless converted
 
-# 7.	Multiply a string by a number and display the result.
+# 7. Multiply a string by a number and display the result.
 multiply_string = "yasir"
-print(multiply_string*2)
-# 8.	Concatenate integer and string types after conversion.
+print(multiply_string * 2)  # Output: yasiryasir
 
-# 9.	Store and print your age using a variable.
+# 8. Concatenate integer and string types after conversion.
+num = 10
+text = " is my lucky number"
+result = str(num) + text
+print(result)  # Output: 10 is my lucky number
 
-# 10.	Check if a variable is of type int.
+# 9. Store and print your age using a variable.
+my_Age = 24
+print(my_Age)
 
-# 11.	Convert a number into a string and add it to another string.
+# 10. Check if a variable is of type int.
+a = 7
+print(type(a) == int)  # True
 
-# 12.	Write a program to accept your name and roll number and display them.
+# 11. Convert a number into a string and add it to another string.
+a = 2              # integer
+b = str(a)         # convert integer to string, b = "2"
+c = "yasir"        # string
+d = b + c          # string concatenation: "2" + "yasir"
+print(d)           # Output: 2yasir
 
-# 13.	Check whether the input is an integer or a float.
+# 12. Write a program to accept your name and roll number and display them.
+student_name = input("Enter your name: ")
+student_roll_no = int(input("Enter your roll number: "))
+print("Name:", student_name)
+print("Roll Number:", student_roll_no)
 
-# 14.	Take input from the user and print it in reverse order.
+# 13. Check whether the input is an integer or a float.
+value = input("Enter a number: ")
+try:
+    int_val = int(value)
+    print("It's an integer.")
+except ValueError:
+    try:
+        float_val = float(value)
+        print("It's a float.")
+    except ValueError:
+        print("It's neither int nor float.")
 
-# 15.	Display the memory address of a variable.
-variable_memory = [1,2,3,4,5]
-print(id(variable_memory))
+# 14. Take input from the user and print it in reverse order.
+user_input = input("Enter something to reverse: ")
+reverse_str = user_input[::-1]
+print("Reversed:", reverse_str)
+
+# 15. Display the memory address of a variable.
+variable_memory = [1, 2, 3, 4, 5]
+print("Memory address:", id(variable_memory))
+
 
