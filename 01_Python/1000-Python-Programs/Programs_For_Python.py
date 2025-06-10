@@ -87,4 +87,50 @@ print("Reversed:", reverse_str)
 variable_memory = [1, 2, 3, 4, 5]
 print("Memory address:", id(variable_memory))
 
+# ============================================
+#  B. Operators (Arithmetic, Comparison, Logical) — 20 Questions
+# Goal: Logic Building, DSA, and Python Mastery
+# ============================================
 
+# 16. Perform all arithmetic operations on two numbers.
+num_arth = 2
+num_arth1 = 4
+print(num_arth + num_arth1)    # Addition
+print(num_arth * num_arth1)    # Multiplication
+print(num_arth - num_arth1)    # Subtraction
+print(num_arth / num_arth1)    # Division
+print(num_arth % num_arth1)    # Modulo
+
+# 17. Write a program to find the square and cube of a number.
+num_square = int(input("Enter your number: "))
+print("Square:", num_square ** 2)
+print("Cube:", num_square ** 3)
+
+# 18. Use comparison operators to check if two numbers are equal.
+number_checker = int(input("Enter num 1: "))
+number_checker2 = int(input("Enter num 2: "))
+if number_checker == number_checker2:
+    print("Equal")
+else:
+    print("Not equal")
+
+# 19. Check if a number is greater than 10 and less than 50 using logical operators.
+num_op = int(input("Enter a number: "))
+if num_op > 10 and num_op < 50:
+    print("Number is between 10 and 50")
+else:
+    print("Number is NOT in the range (10, 50)")
+
+# 20. Demonstrate and, or, and not operators with examples.
+a = 5
+b = 10
+c = 15
+
+# AND operator
+print((a < b) and (b < c))  # True
+
+# OR operator
+print((a > b) or (b < c))   # True
+
+# NOT operator
+print(not(a > b))           # True
