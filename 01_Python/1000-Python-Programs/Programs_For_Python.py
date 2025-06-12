@@ -227,3 +227,7 @@ height = 1.68  # in meters
 bmi = weight / (height ** 2)
 print("BMI is:", round(bmi, 2))
 
+# 36- How to add using arthemtic operation
+a_1 = 2
+a_2 = 4
+print(a_1 + a_2)
