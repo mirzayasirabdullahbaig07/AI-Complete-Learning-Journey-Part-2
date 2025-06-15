@@ -227,7 +227,34 @@ height = 1.68  # in meters
 bmi = weight / (height ** 2)
 print("BMI is:", round(bmi, 2))
 
-# 36- How to add using arthemtic operation
-a_1 = 2
-a_2 = 4
-print(a_1 + a_2)
+
+
+# C. Input & Output (15 Questions)
+
+# 36.	Take name input from the user and greet them.
+greet_input = input("enter your name")
+print(greet_input, "welcome to the python program")
+
+# 37.	Take age input and calculate the year when user will turn 100.
+age = int(input("Enter your age: "))
+current_year = 2025
+year_when_100 = current_year + (100 - age)
+print(f"You will turn 100 years old in the year {year_when_100}.")
+
+# 38.	Accept three numbers and print their sum.
+get_num1 = int(input("Enter first number: "))
+get_num2 = int(input("Enter second number: "))
+get_num3 = int(input("Enter third number: "))
+result = get_num1 + get_num2 + get_num3
+print("The sum is:", result)
+
+# 39.	Read two strings and concatenate them with a space.
+str1 = "my name is yasir"
+str2 = "my age is 24"
+print(str1 + " " + str2)
+
+# 40.	Take user input in one line and split them into separate variables.
+a, b, c = input("Enter three numbers separated by space: ").split()
+print("First:", a)
+print("Second:", b)
+print("Third:", c)
