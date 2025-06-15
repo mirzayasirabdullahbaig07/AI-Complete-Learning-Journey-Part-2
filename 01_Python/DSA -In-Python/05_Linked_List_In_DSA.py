@@ -139,6 +139,83 @@ class LinkedList:
             self.n += 1
         else:
             return 'Item not found'
+        
+        # delete using clear
+    def clear(self):
+        self.head = None
+        self.n = 0
+
+        # delete from head
+    def delete_head(self):
+        if self.head == None:
+         # empty
+
+          return 'empty'
+        self.head = self.head.next 
+        self.n = self.n - 1   
+    
+    #delete from tail(pop)
+
+    def pop(self):
+
+        curr = self.head
+        if self.head == None:
+            return "empty list"
+        if curr.next == None:
+            return self.delete_head()
+
+        while curr.next.next != None:
+            curr = curr.next
+        # curr secondlast node
+        curr.next = None
+        self.n = self.n -1 
+
+    def remove_by_value(self, value):
+        if self.head == None:
+            return "empty list"
+        if self.head.data == value:
+            # you want to remove the head node
+            return self.delete_head()
+        curr = self.head
+
+        while curr.next != None:
+            if curr.next.data == value:
+                break
+            curr = curr.next
+        
+        # item found
+
+        # item not found
+        if curr.next == None:
+            return "Not Found"
+        else:
+            curr.next = curr.next.next
+        
+ # searching in linked list
+    def search(self, item):
+        curr = self.head
+        pos = 0
+
+        while curr != None:
+            if curr.data == item:
+                return pos
+            curr = curr.next
+            pos = pos + 1
+        return "Not found"
+    
+    def __getitem__(self, index):
+        curr = self.head
+        pos = 0
+
+        while curr != None:
+            if pos == index:
+                return curr.data
+            curr = curr.next
+            pos = pos + 1
+
+        return "indexerror"
+
+       
 
 # If you want to reach the last node:       curr != None
 # If you want to reach the second last:     curr.next != None
@@ -157,3 +234,25 @@ print(L)
 # Some common operations:
 # - Reverse
 # - Find max
+
+
+
+# Deletion has 4 cases
+# clear mean empty the linked list
+# delete freom head
+# delete from tail
+# delete by value
+
+
+# now we are moving on searching by value (find)
+# delete by index (del)
+# search by index (indexing)
+
+# when u use array and linked list
+
+# arrays have fast read operations
+# write operation are slow in array
+
+
+# # linked list have slow read operations
+# write operation are fast in linked
