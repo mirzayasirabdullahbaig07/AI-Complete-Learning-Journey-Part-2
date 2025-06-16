@@ -258,3 +258,27 @@ a, b, c = input("Enter three numbers separated by space: ").split()
 print("First:", a)
 print("Second:", b)
 print("Third:", c)
+
+# 41.	Take a number as input and print it as float.
+input_float = float(input("enter the value"))
+print(input_float)
+
+# 42.	Read a sentence and print its first word.
+sentence = "yasir abdullah"
+first_word = sentence.split()[0]
+print(first_word)
+
+# 43.	Format a sentence using variables (f-strings).
+a = "yasir"
+b = "abdullah"
+print(f"this is {a} and {b}")
+
+# 44.	Display your full name in reverse order.
+name_reverse = "yasir"
+print(name_reverse[::-1])
+
+# 45.	Take 3 numbers from the user and print their multiplication.
+take_first_num = int(input("enter the first number"))
+take_sec_num = int(input("enter the second number"))
+take_third_num = int(input("enter the third number"))
+print(take_first_num * take_sec_num * take_third_num)
