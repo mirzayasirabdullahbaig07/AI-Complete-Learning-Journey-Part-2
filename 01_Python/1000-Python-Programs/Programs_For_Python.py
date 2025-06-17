@@ -282,3 +282,27 @@ take_first_num = int(input("enter the first number"))
 take_sec_num = int(input("enter the second number"))
 take_third_num = int(input("enter the third number"))
 print(take_first_num * take_sec_num * take_third_num)
+
+# 46.	Write a program to print user age after 5 years.
+user_age = int(input("enter the age"))
+age_after_5 = user_age + 5
+print(age_after_5)
+
+# 47.	Take a floating number from user and round it to the nearest integer.
+floating_num = float(input("Enter a float number: "))
+rounded = round(floating_num)
+print(rounded)
+
+# 48.	Accept temperature in Celsius and convert to Fahrenheit.
+celsius_temp = float(input("Enter temperature in Celsius: "))
+fahrenheit_temp = (celsius_temp * 9/5) + 32
+print(f"Temperature in Fahrenheit: {fahrenheit_temp}")
+
+# 49.	Print a line 5 times using a single print statement.
+single_statement = "My name is yasir"
+print(("This is a repeated line.\n" * 5).strip())
+
+# 50.	Take input of a product name and its price, then print a bill
+product_name = "SOAP"
+price = 100
+print(f"the {product_name} price is {price}")
