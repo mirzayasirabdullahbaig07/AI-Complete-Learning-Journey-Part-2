@@ -154,3 +154,136 @@ np.cumsum(s)
 
 # Plot the CDF
 np.cumsum(s).plot(kind='bar')
+# ------------------------------
+# PDF - Probability Density Function
+# ------------------------------
+
+# A Probability Density Function (PDF) is a mathematical function that describes the probability distribution of a continuous random variable.
+
+# Difference between Mass Function and Density Function:
+# - In probability mass function (PMF), y-axis represents **actual probabilities** for discrete variables.
+# - In PDF, y-axis represents **probability density**, not the actual probability.
+# - The x-axis in PDF spans continuous values (potentially infinite range).
+
+# Why use probability density and not exact probability?
+# For continuous values (like marks or measurements), the probability of any **exact value** (e.g., exactly 9.878) is almost zero.
+# Instead, we find the probability in a **range**, e.g., between 9 and 10, which is represented by the **area under the curve**.
+
+# What does the area under the PDF curve represent?
+# - The **area** under the curve between two points gives the **probability** that the variable lies within that range.
+# - The total area under the entire curve is always **1** (100%).
+
+# How do we calculate the PDF?
+# We use **density estimation** based on data:
+# 1. Parametric density estimation
+# 2. Non-parametric density estimation
+
+# --------------------------------
+# Parametric Density Estimation
+# --------------------------------
+
+# This method assumes the data follows a known distribution (like normal, exponential, Poisson).
+# We estimate parameters like **mean (μ)** and **standard deviation (σ)**, then fit the curve.
+
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy.random import normal
+from scipy.stats import norm
+import seaborn as sns
+
+# Generate normal distributed sample data
+sample = normal(loc=50, scale=10, size=1000)  # mean = 50, std = 10
+
+# Step 1: Plot histogram to understand distribution
+plt.hist(sample, bins=10)
+plt.title("Histogram of Sample Data")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.show()
+
+# Step 2: Calculate sample statistics
+sample_mean = sample.mean()
+sample_std = sample.std()
+
+# Step 3: Fit a normal distribution using these parameters
+dist = norm(sample_mean, sample_std)
+values = np.linspace(sample.min(), sample.max(), 100)
+pdf = [dist.pdf(val) for val in values]
+
+# Step 4: Plot histogram with PDF curve
+plt.hist(sample, bins=10, density=True, alpha=0.6, label='Histogram')
+plt.plot(values, pdf, color='red', label='PDF')
+plt.title("Parametric PDF Fit")
+plt.xlabel("Value")
+plt.ylabel("Density")
+plt.legend()
+plt.show()
+
+# Using Seaborn for simpler visualization
+sns.distplot(sample, kde=True)
+plt.title("PDF using Seaborn")
+plt.show()
+
+# Why is this called 'parametric'?
+# Because it depends on known parameters like mean and standard deviation.
+
+# -----------------------------------------------------
+# Non-Parametric Density Estimation (KDE - Kernel)
+# -----------------------------------------------------
+
+# In many cases, the data doesn't follow a known distribution.
+# Non-parametric methods like **Kernel Density Estimation (KDE)** make no assumptions.
+
+# KDE uses a kernel (usually Gaussian) to estimate density for each point.
+# - Bandwidth controls the smoothness.
+# - Smaller bandwidth → sharper spikes.
+# - Larger bandwidth → smoother curve.
+
+# Generate sample with no clear single distribution (2 peaks)
+sample1 = normal(loc=20, scale=10, size=300)
+sample2 = normal(loc=40, scale=5, size=700)
+sample = np.hstack((sample1, sample2))
+
+# Plot histogram to view distribution
+plt.hist(sample, bins=50)
+plt.title("Mixture Histogram")
+plt.show()
+
+# Fit KDE model using sklearn
+from sklearn.neighbors import KernelDensity
+
+sample = sample.reshape((len(sample), 1))  # reshape to 2D array for sklearn
+model = KernelDensity(bandwidth=3, kernel='gaussian')
+model.fit(sample)
+
+# Evaluate KDE model
+values = np.linspace(sample.min(), sample.max(), 1000).reshape(-1, 1)
+log_density = model.score_samples(values)
+density = np.exp(log_density)
+
+# Plot histogram and KDE curve
+plt.hist(sample, bins=50, density=True, alpha=0.5, label='Histogram')
+plt.plot(values[:, 0], density, color='red', label='KDE')
+plt.title("Non-Parametric Density Estimation (KDE)")
+plt.xlabel("Value")
+plt.ylabel("Density")
+plt.legend()
+plt.show()
+
+# KDE using Seaborn (simpler and automatic bandwidth handling)
+sns.kdeplot(sample.reshape(1000))
+plt.title("KDE using Seaborn")
+plt.show()
+
+# Summary:
+
+# Parametric Estimation:
+# - Assumes distribution type (Normal, Exponential, etc.)
+# - Needs parameters like mean and std
+# - Fast and interpretable
+
+# Non-Parametric Estimation:
+# - No assumption about underlying distribution
+# - Flexible for real-world data
+# - Slower, but more accurate for complex distributions
+
