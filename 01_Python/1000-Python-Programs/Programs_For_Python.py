@@ -306,3 +306,44 @@ print(("This is a repeated line.\n" * 5).strip())
 product_name = "SOAP"
 price = 100
 print(f"the {product_name} price is {price}")
+
+
+# ✅ PART 2: Conditional Statements (if, elif, else) — 50 Logic-Building Questions
+# These questions will help you strengthen your decision-making and logic-building skills in Python using conditional statements.
+# ________________________________________
+# 📌 A. Basic If Conditions (25 Questions)
+
+# 51.	Check if a number is positive.
+even_checker = int(input("Enter the number: "))
+if even_checker > 0:
+    print("This is a positive number")
+else: 
+    print("The number is not positive")
+
+# 52.	Check if a number is odd or even.
+number_check = int(input("Enter the number: "))
+if number_check % 2 == 0:
+    print("Number is even")
+else:
+    print("Number is odd")
+
+# 53.	Check if a number is divisible by 7.
+checker_divisble = int(input("Enter the number: "))
+if checker_divisble % 7 == 0:
+    print("The number is divisible by 7")
+else:
+    print("The number is not divisible by 7")
+
+# 54.	Check if a person is eligible to vote (age ≥ 18).
+vote_checker_age = int(input("Enter the age: "))
+if vote_checker_age >= 18:
+    print("He is eligible to vote")
+else:
+    print("He is not eligible to vote")
+
+# 55.	Check if a number is a single-digit number.
+checker_number_size = int(input("Enter the number: "))
+if -9 <= checker_number_size <= 9:
+    print("Number is a single-digit number")
+else:
+    print("This is not a single-digit number")
