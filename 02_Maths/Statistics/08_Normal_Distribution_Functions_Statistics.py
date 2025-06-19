@@ -1,0 +1,117 @@
+# ------------------------------------------
+# What is a Normal Distribution?
+# ------------------------------------------
+
+# A normal distribution, also called a Gaussian distribution, 
+# is a continuous probability distribution commonly used in statistics.
+# It is symmetric around the mean and has a characteristic bell-shaped curve.
+
+# ------------------------------------------
+# Key Characteristics:
+# ------------------------------------------
+
+# - Symmetrical around the mean (μ)
+# - Most of the data points lie near the mean
+# - Fewer data points are found as we move away from the mean (in the tails)
+# - Asymptotic: the tails approach the x-axis but never touch it
+# - Defined by two parameters: mean (μ) and standard deviation (σ)
+
+# ------------------------------------------
+# Parameters:
+# ------------------------------------------
+
+# 1. Mean (μ):
+#    - Represents the center of the distribution
+#    - Also the point of symmetry
+
+# 2. Standard Deviation (σ):
+#    - Measures the spread of the distribution
+#    - Larger σ means the curve is wider and flatter
+#    - Smaller σ means the curve is narrower and taller
+
+# ------------------------------------------
+# Visual Intuition:
+# ------------------------------------------
+
+# - The y-axis represents probability density (PDF)
+# - The peak (highest point) occurs at the mean (μ)
+# - Left and right ends are called "tails"
+#     * Left tail: very low values
+#     * Right tail: very high values
+# - Most values are within ±1σ, ±2σ, and ±3σ from the mean
+
+# ------------------------------------------
+# Notation:
+# ------------------------------------------
+
+# X ~ N(μ, σ²)
+# Where:
+# - μ = mean
+# - σ² = variance
+# - σ = standard deviation
+
+# ------------------------------------------
+# Summary:
+# ------------------------------------------
+
+# - The normal distribution is bell-shaped, symmetric, and centered at μ
+# - Tails represent rare/extreme values
+# - It is widely used in real-world data modeling and hypothesis testing
+
+
+# ---------------------------------------------------
+# Why is the Normal Distribution Important?
+# ---------------------------------------------------
+
+# 1. Common in Nature:
+#    Many natural and real-world phenomena follow a normal distribution.
+#    Examples include:
+#      - Height of people
+#      - Weight of objects
+#      - IQ scores
+#      - Measurement errors
+#      - Blood pressure levels
+#    Because of this, the normal distribution offers a practical and reliable
+#    way to model, analyze, and make predictions about such data.
+
+# 2. Foundation of Statistical Inference:
+#    The normal distribution forms the basis for many statistical tests,
+#    including hypothesis testing and confidence intervals.
+
+# 3. Central Limit Theorem:
+#    According to the CLT, the sampling distribution of the sample mean
+#    approaches a normal distribution as the sample size increases,
+#    regardless of the original distribution.
+
+# ---------------------------------------------------
+# PDF Equation of the Normal Distribution:
+# ---------------------------------------------------
+
+# The probability density function (PDF) of a normal distribution is given by:
+
+# f(x) = (1 / (σ * sqrt(2π))) * e^(-0.5 * ((x - μ)/σ)^2)
+
+# Where:
+# - x  = data point
+# - μ  = mean of the distribution
+# - σ  = standard deviation
+# - e  = Euler’s number (~2.718)
+# - π  = Pi (~3.14159)
+
+# ---------------------------------------------------
+# What is a Standard Normal Variate?
+# ---------------------------------------------------
+
+# A standard normal variate (Z) is a normalized version of a normal distribution.
+# It has:
+# - Mean (μ) = 0
+# - Standard Deviation (σ) = 1
+
+# This process is called **standardization**, and it allows us to:
+# - Compare different normal distributions
+# - Use Z-tables (or software) to calculate probabilities
+# - Convert any normal variable X to Z using:
+
+# Z = (X - μ) / σ
+
+# This transformation is essential in many statistical applications.
