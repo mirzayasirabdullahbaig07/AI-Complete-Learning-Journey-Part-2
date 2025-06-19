@@ -287,3 +287,114 @@ plt.show()
 # - Flexible for real-world data
 # - Slower, but more accurate for complex distributions
 
+
+
+# How to Use PDF and CDF in Data Science
+
+# --------------------------
+# Introduction
+# --------------------------
+
+# In data science, understanding the distribution of data is crucial for making informed decisions.
+# Two important tools for analyzing data distributions are:
+# - PDF (Probability Density Function)
+# - CDF (Cumulative Distribution Function)
+
+# These tools help us in:
+# 1. Understanding the probability distribution of features.
+# 2. Performing feature selection by identifying which features help differentiate between classes.
+
+# --------------------------
+# Use Case: Feature Selection
+# --------------------------
+
+# In a dataset, some features are more helpful in predicting the target variable than others.
+# Feature selection techniques help isolate such valuable features.
+
+# One such approach is to visualize the PDF of features to see how well they separate different classes.
+
+# --------------------------
+# Dataset: Iris
+# --------------------------
+
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = sns.load_dataset('iris')
+df.head()
+
+# Plotting the PDF (using KDE plots) for different features to analyze their distribution
+sns.kdeplot(data=df, x='sepal_length', hue='species')
+plt.title("PDF of Sepal Length")
+plt.show()
+
+sns.kdeplot(data=df, x='sepal_width', hue='species')
+plt.title("PDF of Sepal Width")
+plt.show()
+
+sns.kdeplot(data=df, x='petal_length', hue='species')
+plt.title("PDF of Petal Length")
+plt.show()
+
+sns.kdeplot(data=df, x='petal_width', hue='species')
+plt.title("PDF of Petal Width")
+plt.show()
+
+# --------------------------
+# Feature Selection Using PDF
+# --------------------------
+
+# Suppose someone asks: "Select the two most useful features from the four above."
+# We use the PDF plots to evaluate this.
+
+# Key Observation:
+# - Petal Length and Petal Width show clear separation between species.
+#   For example:
+#     - petal_length < 2.3 => likely 'setosa'
+#     - 2.3 < petal_length < 5 => likely 'versicolor'
+#     - petal_length > 5 => likely 'virginica'
+
+# Hence, petal_length and petal_width are the most informative features for classifying species.
+
+# --------------------------
+# Using CDF (Cumulative Distribution Function)
+# --------------------------
+
+# CDF gives the cumulative probability for values of a variable.
+# It's helpful in understanding how data accumulates and in comparing distributions.
+
+# PDF vs CDF:
+# - PDF shows how dense the data is at different points.
+# - CDF shows cumulative probability up to each point.
+
+# Plotting CDF (ECDF in seaborn)
+
+sns.kdeplot(data=df, x='petal_width', hue='species')
+plt.title("PDF of Petal Width")
+plt.show()
+
+sns.ecdfplot(data=df, x='petal_width', hue='species')
+plt.title("CDF of Petal Width")
+plt.show()
+
+# --------------------------
+# Another Example: Titanic Dataset
+# --------------------------
+
+# Load Titanic dataset (replace with correct path or URL)
+titanic = pd.read_csv("link/to/titanic.csv")
+titanic.head()
+
+# Plot the PDF of Age grouped by Survival status
+sns.kdeplot(data=titanic, x='Age', hue='Survived')
+plt.title("PDF of Age by Survival Status")
+plt.show()
+
+# --------------------------
+# 2D KDE Plot (Joint Distribution)
+# --------------------------
+
+# We can also visualize the joint distribution of two features using 2D KDE (PDF in 2D)
+sns.jointplot(data=df, x='petal_length', y='sepal_width', kind='kde', fill=True, cbar=True)
+# Darker regions indicate higher density of data points
