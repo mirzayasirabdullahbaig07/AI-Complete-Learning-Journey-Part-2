@@ -347,3 +347,42 @@ if -9 <= checker_number_size <= 9:
     print("Number is a single-digit number")
 else:
     print("This is not a single-digit number")
+
+# 56. Check if a given year is a leap year
+the_current_year = int(input("Enter a year to check if it's a leap year: "))
+if (the_current_year % 4 == 0 and the_current_year % 100 != 0) or (the_current_year % 400 == 0):
+    print("This is a leap year\n")
+else:
+    print("This is not a leap year\n")
+
+# 57. Check if a given character is a vowel or consonant
+vowel_checker = input("Enter a character to check if it's a vowel: ").lower()
+if len(vowel_checker) == 1 and vowel_checker.isalpha():
+    if vowel_checker in ['a', 'e', 'i', 'o', 'u']:
+        print("This is a vowel\n")
+    else:
+        print("This is a consonant\n")
+else:
+    print("Invalid input. Please enter a single alphabet character.\n")
+
+# 58. Check if a string is empty or not
+empty_string = input("Enter a string to check if it's empty: ")
+if empty_string == "":
+    print("This is an empty string\n")
+else:
+    print("This is not an empty string\n")
+
+# 59. Check if a number is less than 100 and greater than 50
+checker_number_len = int(input("Enter a number: "))
+if 50 < checker_number_len < 100:
+    print("The number is greater than 50 and less than 100\n")
+else:
+    print("The number is not in the range (50, 100)\n")
+
+# 60. Accept a password and check if it matches the stored password
+password_store = "yasir123"
+entered_password = input("Enter your password: ")
+if entered_password == password_store:
+    print("The password is correct\n")
+else:
+    print("Password is wrong\n")
