@@ -115,3 +115,50 @@
 # Z = (X - μ) / σ
 
 # This transformation is essential in many statistical applications.
+
+
+# Benefits of the Standard Normal Distribution
+
+# Standardizing a normal distribution allows us to:
+# - Compare different distributions with each other.
+# - Calculate probabilities using standard Z-tables or statistical software.
+
+import pandas as pd
+import seaborn as sns
+
+# Load the Titanic dataset
+titanic = pd.read_csv("link/to/titanic.csv")
+
+# View the first few rows
+titanic.head()
+
+# Visualize the distribution of 'Age'
+sns.kdeplot(titanic['Age'])
+
+# Note: The age distribution is not perfectly normal (slightly skewed)
+
+# Calculate the mean and standard deviation of Age
+mean_age = titanic['Age'].mean()
+std_age = titanic['Age'].std()
+
+# Standardize the 'Age' column (convert to Z-scores)
+titanic['Age_z'] = (titanic['Age'] - mean_age) / std_age
+
+# Example Problem:
+# Suppose the heights of adult males in a certain population follow a normal distribution
+# with a mean of 68 inches and a standard deviation of 3 inches.
+# What is the probability that a randomly selected adult male from this population is taller than 72 inches?
+
+# Step 1: Calculate the Z-score
+# Z = (X - μ) / σ
+# Z = (72 - 68) / 3 = 4 / 3 ≈ 1.33
+
+# Step 2: Use the Z-table to find the probability to the left of Z = 1.33
+# P(Z < 1.33) ≈ 0.9082
+
+# Step 3: We want the probability of being taller than 72 inches, which is:
+# P(Z > 1.33) = 1 - P(Z < 1.33) = 1 - 0.9082 = 0.0918
+
+# Final Answer:
+# There is approximately a 9.18% probability that a randomly selected adult male
+# from this population is taller than 72 inches.
