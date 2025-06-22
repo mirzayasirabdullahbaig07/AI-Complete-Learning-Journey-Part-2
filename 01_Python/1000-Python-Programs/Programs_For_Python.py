@@ -386,3 +386,6 @@ if entered_password == password_store:
     print("The password is correct\n")
 else:
     print("Password is wrong\n")
+
+
+    # How to make a function
