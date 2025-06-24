@@ -162,3 +162,52 @@ titanic['Age_z'] = (titanic['Age'] - mean_age) / std_age
 # Final Answer:
 # There is approximately a 9.18% probability that a randomly selected adult male
 # from this population is taller than 72 inches.
+
+# Properties of Normal Distribution
+
+# Symmetry:
+# The normal distribution is symmetric about its mean,
+# which means the probability of observing a value above the mean
+# is the same as observing a value below the mean.
+# The bell-shaped curve reflects this perfect symmetry.
+
+# Measures of Central Tendency:
+# In a normal distribution, the mean, median, and mode are all equal.
+# This equality reinforces the symmetry and balance of the distribution.
+
+# What is the Empirical Rule?
+# The normal distribution follows a well-known rule called the Empirical Rule
+# (also known as the 68-95-99.7 Rule):
+# - Approximately 68% of the data lies within 1 standard deviation of the mean
+# - About 95% lies within 2 standard deviations
+# - About 99.7% lies within 3 standard deviations
+
+# What is Skewness?
+# A normal distribution is a bell-shaped, symmetrical distribution 
+# defined by a specific mathematical formula that describes how data is spread out.
+# Skewness tells us when data is not symmetrical—meaning it is not normally distributed.
+
+# Skewness is a statistical measure of the asymmetry of a probability distribution.
+# It quantifies the degree to which a dataset deviates from the normal distribution.
+
+# In a symmetrical distribution:
+# - Mean = Median = Mode
+# In a skewed distribution:
+# - Mean, Median, and Mode are not equal
+# - The distribution has a longer tail on one side
+
+# Types of Skewness:
+# - Positive Skew: Tail is longer on the right side
+# - Negative Skew: Tail is longer on the left side
+# - Zero Skew (Symmetrical): Perfectly balanced distribution
+
+# CDF of Normal Distribution:
+# The Cumulative Distribution Function (CDF) of a normal distribution
+# gives the probability that a random variable will take a value less than or equal to a specific value.
+
+# Uses of Normal Distribution in Data Science:
+# - Outlier Detection
+# - Making assumptions about data for machine learning algorithms
+# - Hypothesis Testing
+# - Central Limit Theorem (CLT): Explains why many distributions tend to become normal as sample size increases
+
