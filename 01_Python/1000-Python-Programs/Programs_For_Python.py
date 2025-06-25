@@ -329,8 +329,7 @@ else:
 
 # 53.	Check if a number is divisible by 7.
 checker_divisble = int(input("Enter the number: "))
-if checker_divisble % 7 == 0:
-    print("The number is divisible by 7")
+if checker_divisble % 7 == 0:    print("The number is divisible by 7")
 else:
     print("The number is not divisible by 7")
 
@@ -389,4 +388,4 @@ else:
 
 
     # the pending questions will be provided here
-    ###
+    ### so be in touch
