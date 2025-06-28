@@ -137,3 +137,104 @@ plt.show()
 # ✔ Mesokurtic  → Normal tail thickness
 # ✔ QQ plots help compare any dataset against any theoretical distribution.
 # ✔ Use visual plots + statistical tests to confirm normality assumptions.
+
+
+# What is Uniform Distribution and Its Types
+# In probability theory and statistics, a uniform distribution is a probability distribution 
+# where all outcomes are equally likely within a given range. This means that if you select a random 
+# value from this range, any value would be as likely as any other.
+
+# Types:
+# - Discrete Uniform Distribution
+# - Continuous Uniform Distribution
+
+# Notation:
+# X ~ U(a, b)
+
+# Examples:
+# a. The height of a randomly selected person from a group with heights ranging from 5'6" to 6'0" 
+#    follows a continuous uniform distribution.
+# b. The time a machine takes to produce a product, ranging from 5 to 10 minutes.
+# c. The distance a car travels on a full tank, ranging from 300 to 400 miles.
+# d. The weight of an apple from a basket, weighing between 100 and 200 grams.
+
+# Applications in Machine Learning and Data Science:
+# a. Random Initialization:
+#    Used in algorithms like neural networks and k-means to ensure all initial values have equal chance.
+# b. Sampling:
+#    Useful for selecting representative subsets from balanced datasets.
+# c. Data Augmentation:
+#    Generate synthetic data points within a defined range using uniform distribution.
+# d. Hyperparameter Tuning:
+#    Uniform priors allow random search over hyperparameter space.
+
+# ---------------------------------------------------------
+
+# Log-Normal Distribution
+# A log-normal distribution is a continuous, heavy-tailed probability distribution 
+# of a random variable whose logarithm is normally distributed.
+
+# Examples:
+# - Length of comments on internet forums
+# - User dwell time on online articles
+# - Length of chess games
+# - Income of 97–99% of the population (log-normally distributed)
+
+# This is a skewed distribution.
+
+# ---------------------------------------------------------
+
+# Pareto Distribution
+# The Pareto distribution models the distribution of wealth, income, and other variables 
+# that follow a power-law behavior.
+
+# What is Power Law?
+# A power law is a functional relationship between two variables, where one is proportional 
+# to a power of the other: y = k * x^a
+
+# Examples:
+# - Size of human settlements
+# - File size distribution in internet traffic (TCP)
+
+# ---------------------------------------------------------
+# How to Detect Pareto Distribution: Log-Log Plot
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the parameters
+alpha = 3
+xm = 1
+
+# Generate x values
+x = np.linspace(0.1, 10, 1000)
+
+# Calculate Pareto y values
+y = alpha * (xm**alpha) / (x**(alpha + 1))
+
+# Plot log-log
+plt.plot(np.log(x), np.log(y))
+plt.xlabel('x')
+plt.ylabel('P(x)')
+plt.title('Pareto Distribution (Log-Log Plot)')
+plt.show()
+
+# ---------------------------------------------------------
+# QQ Plot to Validate Pareto Distribution Fit
+import scipy.stats as stats
+import statsmodels.api as sm
+
+# Generate sample data
+x = np.linspace(1, 10, 1000)
+
+# Fit Pareto distribution
+params = stats.pareto.fit(x, floc=0)
+
+# Create Pareto distribution with fitted parameters
+dist = stats.pareto(b=params[0], scale=params[2])
+
+# Generate QQ plot
+fig = sm.qqplot(x, dist=dist, line='45')
+plt.title('QQ Plot of Pareto Distribution with Pareto Fit')
+plt.xlabel('Theoretical Quantiles')
+plt.ylabel('Sample Quantiles')
+plt.show()
