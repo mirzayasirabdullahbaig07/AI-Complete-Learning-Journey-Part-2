@@ -238,3 +238,75 @@ plt.title('QQ Plot of Pareto Distribution with Pareto Fit')
 plt.xlabel('Theoretical Quantiles')
 plt.ylabel('Sample Quantiles')
 plt.show()
+
+
+# 📊 Normalizing Skewed Data for Machine Learning Models
+# ------------------------------------------------------
+
+# 🧠 Why Transform Data?
+# Many machine learning models (like Linear Regression, Logistic Regression, etc.)
+# assume that input features follow a normal distribution. 
+# To meet this assumption, we apply **feature transformations**.
+
+# 🔁 Common Mathematical Transformations (Transformers):
+# - Log Transformation: Handles right-skewed data (no negative values).
+# - Box-Cox Transformation: Only works with positive data.
+# - Power Transformation: Includes Box-Cox and Yeo-Johnson.
+# - Quantile Transformation: Makes data follow a uniform or normal distribution.
+# - Reciprocal Transformation: Inverts the values (large become small and vice versa).
+# - Square/Square Root Transformation: Used for skewness correction.
+# - FunctionTransformer (Sklearn): Custom or built-in transformations.
+
+# ------------------------------------------------------
+
+# 🛠️ Import Libraries
+import pandas as pd
+import numpy as np
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.preprocessing import FunctionTransformer
+from sklearn.compose import ColumnTransformer
+
+# 📥 Load Dataset (Titanic sample)
+df = pd.read_csv('train.csv', usecols=['Age', 'Fare', 'Survived'])
+
+# 🧼 Data Cleaning - Fill missing values
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+
+# 🎯 Feature and Target Split
+X = df[['Fare', 'Survived']]
+y = df['Age']
+
+# 📚 Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# 📈 Data Visualization - Distribution and Normality Check
+plt.figure(figsize=(14, 4))
+
+# Probability Density Function (PDF)
+plt.subplot(1, 2, 1)
+sns.histplot(y_train, kde=True, color='blue')
+plt.title('Age Distribution (PDF)')
+
+# QQ Plot to check normality
+plt.subplot(1, 2, 2)
+stats.probplot(y_train, dist="norm", plot=plt)
+plt.title('Age QQ Plot')
+
+plt.tight_layout()
+plt.show()
+
+# 🧪 You can now try applying transformations like:
+# - np.log1p()   --> for log transformation
+# - np.sqrt()    --> for square root
+# - 1 / x        --> for reciprocal
+# - PowerTransformer or QuantileTransformer from sklearn
+
+
