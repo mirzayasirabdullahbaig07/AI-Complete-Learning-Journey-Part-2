@@ -309,4 +309,78 @@ plt.show()
 # - 1 / x        --> for reciprocal
 # - PowerTransformer or QuantileTransformer from sklearn
 
+# ----------------------------------------
+# 🔢 Log, Box-Cox, and Yeo–Johnson Transforms
+# ----------------------------------------
 
+# 📌 1. Log Transform
+# ------------------------
+# The log transform is used to reduce right skewness in data.
+# It helps in making the data more normally distributed.
+
+# Example:
+# If x = 100, then log(x) = 4.605 (natural log)
+# Common use case: Apply to positively skewed data (e.g., income, prices)
+
+# Code Example:
+import numpy as np
+
+data = [1, 10, 100, 1000, 10000]
+log_data = np.log(data)
+print("Log-transformed data:", log_data)
+
+# ----------------------------------------
+# 📌 2. Box-Cox Transform
+# ------------------------
+# Formula:
+#     x(λ) = (x^λ - 1) / λ      if λ ≠ 0
+#     x(λ) = ln(x)              if λ = 0
+#
+# 📘 Note:
+# - x must be positive (x > 0)
+# - λ (lambda) is a parameter in the range [-5, 5]
+# - The goal is to find the best λ that normalizes the data
+# - Used in regression and ML preprocessing to reduce skewness
+
+# Code Example:
+from scipy import stats
+
+positive_data = [1, 2, 3, 4, 5, 10, 20]
+boxcox_data, lambda_val = stats.boxcox(positive_data)
+print("Box-Cox transformed data:", boxcox_data)
+print("Optimal λ:", lambda_val)
+
+# ----------------------------------------
+# 📌 3. Yeo–Johnson Transform
+# ------------------------
+# This is an extension of the Box-Cox transformation.
+# ✅ It works for both positive and negative values.
+
+# Formula:
+# For xi ≥ 0:
+#     x(λ) = [(xi + 1)^λ - 1] / λ              if λ ≠ 0
+#     x(λ) = ln(xi + 1)                        if λ = 0
+#
+# For xi < 0:
+#     x(λ) = - [(-xi + 1)^(2 - λ) - 1] / (2 - λ)  if λ ≠ 2
+#     x(λ) = - ln(-xi + 1)                       if λ = 2
+
+# 📘 Note:
+# - Useful when data includes negative values.
+# - Maintains continuity with Box-Cox logic.
+# - Used in data preprocessing for skewed data with mixed signs.
+
+# Code Example:
+from sklearn.preprocessing import PowerTransformer
+
+mixed_data = [[-5], [-1], [0], [2], [5], [10]]
+pt = PowerTransformer(method='yeo-johnson')
+yj_data = pt.fit_transform(mixed_data)
+print("Yeo-Johnson transformed data:", yj_data)
+print("λ used by transformer:", pt.lambdas_)
+
+# ----------------------------------------
+# ✅ Summary:
+# - Use Log or Box-Cox if your data is strictly positive and skewed.
+# - Use Yeo–Johnson if your data includes zero or negative values.
+# - All transformations help to stabilize variance and make data more normal.
