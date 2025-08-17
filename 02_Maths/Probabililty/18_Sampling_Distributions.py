@@ -22,25 +22,6 @@
 # ------------------------------------------------------
 # Types of Sampling Distributions
 # ------------------------------------------------------
-# 1. Sampling Distribution of Mean:
-#    - Mean of sample means = μ
-#    - Std. dev. = σ / √n   (n = sample size)
-#
-# 2. Sampling Distribution of Proportion:
-#    - Sample proportion p̂ = x/n
-#
-# 3. T-Distribution:
-#    - Used when n is small or σ unknown.
-#    - Formula: t = (x̄ - μ) / (s / √n)
-#
-# ------------------------------------------------------
-# Example:
-# Population mean μ = 13,525, σ = 4,180, n = 100
-# Mean of sample means = μ = 13,525
-# Std. dev. of sample means = σ / √n = 4180 / 10 = 418
-# ------------------------------------------------------
-
-
 
 # ======================================================
 # Chi-Square Test (χ² Test) – Simplified Guide
