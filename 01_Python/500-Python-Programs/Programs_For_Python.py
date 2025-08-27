@@ -94,3 +94,41 @@ print(id(value_))
 # --------------------------------------------
 # B. Operators (Arithmetic, Comparison, Logical) — 20 Questions
 # --------------------------------------------
+
+# 16.	Perform all arithmetic operations on two numbers.
+num1 = 5
+num2 = 4
+print("addition:", num1 + num2)
+print("substraction:", num1 - num2)
+print("multiplication:", num1 * num2)
+print("division:", num1 / num2)
+print("modulus:", num1 % num2)
+
+# 17.	Write a program to find the square and cube of a number.
+num_ = 5
+print(num_ * num_)
+print(num_** num_)
+
+# 18.	Use comparison operators to check if two numbers are equal.
+num1 = 5
+num2 = 4
+print(num1 == num2)
+
+# 19.	Check if a number is greater than 10 and less than 50 using logical operators.
+num1 = 4
+if num1 > 10 and num1 < 50:
+    print("number is under 50")
+else:
+    print("number is smaller than 10 or greater than 50")
+
+# 20.	Demonstrate and, or, and not operators with examples. 
+num1 = 5
+num2 = 4
+if num1 > 2 and num2 > 2:
+    print("AND: Both conditions are True")
+if num1 < 3 or num2 < 10:
+    print("OR: At least one condition is True")
+if not num1 > 10:
+    print("NOT: Condition is False, so this runs")
+
+
