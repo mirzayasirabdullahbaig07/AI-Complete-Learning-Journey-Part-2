@@ -426,3 +426,33 @@ int_binary = bin(intVar)
 int_octal = oct(intVar)
 int_hexadecimal = hex(intVar)
 print(int_binary, int_octal, int_hexadecimal)
+
+# 6.	Write a program to check the data type of user input.
+user_ = input("Mirza Yasir Abdullah Baig")
+print(type(user_))
+
+# 7.	Multiply a string by a number and display the result.
+str_multiply = "Yasir"
+print(str_multiply * 3)
+
+# 8.	Concatenate integer and string types after conversion.
+int_ = 7
+str_ = "yasir"
+result = str(int_) + " " + str_
+print(result)
+
+# 9.	Store and print your age using a variable.
+age_ = 24
+print(age_)
+
+# 10.	Check if a variable is of type int.
+var_ = 7
+print(type(var_))
+
+# 11.	Convert a number into a string and add it to another string.
+var_ = 7
+str_ = "Yasir"
+str_var = str(var_)
+result = str_ + " " + str_var
+print(result)
+
