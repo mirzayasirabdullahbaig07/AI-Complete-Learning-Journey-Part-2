@@ -389,3 +389,40 @@ else:
 
     # the pending questions will be provided here
     ### so be in touch
+
+
+
+# ============================================
+# PART 1: Python Basics (Variables, Data Types, Operators) — 50 Questions
+# ============================================
+
+# --------------------------------------------
+# A. Variables & Data Types (15 Questions)
+# --------------------------------------------
+
+# 1.	Declare a variable with your name and print it.
+varName = "Mirza Yasir Abdullah Baig"
+print(varName)
+
+# 2.	Swap two variables without using a third variable.
+aVar = "Yasir"
+bVar = "Abdullah"
+aVar, bVar = bVar, aVar
+print(aVar, bVar)
+
+# 3.	Convert a string into an integer.
+str_ = "Mirza Yasir Adullah Baig"
+str_int = int(str_)
+print(str_int)
+
+# 4.	Store the result of a float division in an integer variable.
+float_ = 0.07
+float_int = int(float_)
+print(float_int)
+
+# 5.	Convert a given integer to binary, octal, and hexadecimal.
+intVar = 7
+int_binary = bin(intVar)
+int_octal = oct(intVar)
+int_hexadecimal = hex(intVar)
+print(int_binary, int_octal, int_hexadecimal)
