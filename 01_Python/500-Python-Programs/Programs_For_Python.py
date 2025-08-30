@@ -257,3 +257,129 @@ x, y, z = input("Enter three numbers separated by space: ").split()
 print("First value:", x)
 print("Second value:", y)
 print("Third value:", z)
+
+# 41. Take a number as input and print it as float.
+num = input("Enter a number: ")
+print(float(num))
+
+# 42. Read a sentence and print its first word.
+sentence = input("Enter a sentence: ")
+print(sentence.split()[0])
+
+# 43. Format a sentence using variables (f-strings).
+name = "Yasir"
+age = 20
+print(f"My name is {name} and I am {age} years old.")
+
+# 44. Display your full name in reverse order.
+full_name = input("Enter your full name: ")
+print(full_name[::-1])
+
+# 45. Take 3 numbers from the user and print their multiplication.
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+print("Multiplication:", a * b * c)
+
+# 46. Write a program to print user age after 5 years.
+age = int(input("Enter your age: "))
+print("After 5 years, your age will be:", age + 5)
+
+# 47. Take a floating number from user and round it to the nearest integer.
+float_num = float(input("Enter a floating number: "))
+print("Rounded value:", round(float_num))
+
+# 48. Accept temperature in Celsius and convert to Fahrenheit.
+celsius = float(input("Enter temperature in Celsius: "))
+fahrenheit = (celsius * 9/5) + 32
+print("Temperature in Fahrenheit:", fahrenheit)
+
+# 49. Print a line 5 times using a single print statement.
+print(("Hello World! " * 5).strip())
+
+# 50. Take input of a product name and its price, then print a bill.
+product = input("Enter product name: ")
+price = float(input("Enter price: "))
+print(f"Product: {product}\nPrice: {price} USD")
+
+# ============================================
+# PART 2: Conditional Statements (if, elif, else) — 50 Logic-Building Questions
+# ============================================
+
+
+# --------------------------------------------
+# A. Basic If Conditions (25 Questions)
+# --------------------------------------------
+
+# 1. Check if a number is positive.
+num = int(input("Enter a number: "))
+if num > 0:
+    print("Number is Positive")
+elif num < 0:
+    print("Number is Negative")
+else:
+    print("Number is Zero")
+
+# 2. Check if a number is odd or even.
+num = int(input("Enter a number: "))
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+# 3. Check if a number is divisible by 7.
+num = int(input("Enter a number: "))
+if num % 7 == 0:
+    print("Divisible by 7")
+else:
+    print("Not divisible by 7")
+
+# 4. Check if a person is eligible to vote (age ≥ 18).
+age = int(input("Enter your age: "))
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible to vote")
+
+# 5. Check if a number is a single-digit number.
+num = int(input("Enter a number: "))
+if -9 <= num <= 9:
+    print("It is a single-digit number")
+else:
+    print("It is not a single-digit number")
+
+# 6. Check if a given year is a leap year.
+year = int(input("Enter a year: "))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("Leap Year")
+else:
+    print("Not a Leap Year")
+
+# 7. Check if a given character is a vowel or consonant.
+char = input("Enter a character: ").lower()
+if char in "aeiou":
+    print("Vowel")
+else:
+    print("Consonant")
+
+# 8. Check if a string is empty or not.
+s = input("Enter a string: ")
+if len(s) == 0:
+    print("String is empty")
+else:
+    print("String is not empty")
+
+# 9. Check if a number is less than 100 and greater than 50.
+num = int(input("Enter a number: "))
+if 50 < num < 100:
+    print("Number is between 50 and 100")
+else:
+    print("Number is not in range")
+
+# 10. Accept a password and check if it matches the stored password.
+stored_password = "python123"
+password = input("Enter password: ")
+if password == stored_password:
+    print("Access Granted")
+else:
+    print("Access Denied")
