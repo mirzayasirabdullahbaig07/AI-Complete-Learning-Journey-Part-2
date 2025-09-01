@@ -383,3 +383,343 @@ if password == stored_password:
     print("Access Granted")
 else:
     print("Access Denied")
+
+# 11. Check if a number is both even and greater than 100.
+num = 102
+if num % 2 == 0 and num > 100:
+    print("Number is even and greater than 100")
+else:
+    print("Condition not satisfied")
+
+# 12. Check if a character is a digit.
+char = "4"
+if char.isdigit():
+    print("It is a digit")
+else:
+    print("It is not a digit")
+
+# 13. Check if the user input is uppercase.
+input_user = "YASIR"
+if input_user.isupper():
+    print("Input is uppercase")
+else:
+    print("Input is not uppercase")
+
+# 14. Check if two numbers are equal.
+num1 = 3
+num2 = 2
+if num1 == num2:
+    print("Numbers are equal")
+else:
+    print("Numbers are not equal")
+
+# 15. Check if a number is divisible by both 3 and 5.
+num = 15
+if num % 3 == 0 and num % 5 == 0:
+    print("Number is divisible by both 3 and 5")
+else:
+    print("Number is not divisible by both 3 and 5")
+
+# 16. Check if a number lies between 1 and 10.
+num = 3
+if num > 1 and num < 10:
+    print("Number lies between 1 and 10")
+else:
+    print("Number is not in range 1-10")
+
+# 17. Take an input name and check if it matches your name.
+name = "yasir"
+user_input = input("Enter the name: ")
+if name == user_input:
+    print("The name is the same")
+else:
+    print("Name is not the same")
+
+# 18. Check if a number ends with digit 5.
+num = 2245
+if str(num).endswith("5"):
+    print("The number ends with 5")
+else:
+    print("The number does not end with 5")
+
+# 19. Accept a float number and check if it’s less than 10.5.
+num_float = float(input("Enter a float number: "))
+if num_float < 10.5:
+    print("It is less than 10.5")
+else:
+    print("It is greater than or equal to 10.5")
+
+# 20. Take a name input and check if it starts with “A”.
+name_value = "Abdullah"
+if name_value.startswith("A"):
+    print("The name starts with A")
+else:
+    print("The name does not start with A")
+
+# 21. Check if a number is not zero.
+num = 7
+if num != 0:
+    print("Number is not zero")
+else:
+    print("Number is zero")
+
+# 22. Check if a string contains more than 5 characters.
+string_val = "HelloWorld"
+if len(string_val) > 5:
+    print("String contains more than 5 characters")
+else:
+    print("String does not contain more than 5 characters")
+
+# 23. Check if the first and last character of a string are the same.
+string_val = "radar"
+if string_val[0] == string_val[-1]:
+    print("First and last character are the same")
+else:
+    print("First and last character are not the same")
+
+# 24. Check if a character is a special symbol (@, #, $, etc.).
+char = "@"
+if char in "@#$%&*!":
+    print("It is a special symbol")
+else:
+    print("It is not a special symbol")
+
+# 25. Take marks input and check if the student has passed (marks ≥ 40).
+marks = int(input("Enter marks: "))
+if marks >= 40:
+    print("Student has passed")
+else:
+    print("Student has failed")
+
+
+
+# --------------------------------------------
+# B. If...Else and Elif Conditions (25 Questions)
+# --------------------------------------------
+
+# 26. Write a program to find the greatest of two numbers.
+num = 3
+num2 = 33
+if num > num2:
+    print("num is greater")
+elif num2 > num:
+    print("it is larger")
+else:
+    print("it is same")
+
+# 27. Write a program to find the greatest of three numbers.
+num1 = 4
+num2 = 5
+num3 = 6
+if num1 >= num2 and num1 >= num3:
+    print(f"{num1} is the greatest")
+elif num2 >= num1 and num2 >= num3:
+    print(f"{num2} is the greatest")
+else:
+    print(f"{num3} is the greatest")
+
+# 28. Write a program to assign grades based on marks: • A (90+), B (80–89), C (70–79), Fail (Below 70).
+marks = 85
+if marks >= 90:
+    print("Grade: A")
+elif marks >= 80:
+    print("Grade: B")
+elif marks >= 70:
+    print("Grade: C")
+else:
+    print("Grade: Fail")
+
+# 29. Take input of a number and check if it’s a multiple of 2 or 3.
+num = int(input("Enter a number: "))
+if num % 2 == 0 or num % 3 == 0:
+    print(f"{num} is a multiple of 2 or 3")
+else:
+    print(f"{num} is not a multiple of 2 or 3")
+
+# 30. Check whether the given character is a lowercase or uppercase alphabet.
+ch = input("Enter a character: ")
+if ch.isupper():
+    print("Uppercase")
+elif ch.islower():
+    print("Lowercase")
+else:
+    print("Not an alphabet")
+
+# 31. Write a program to print "Good Morning", "Good Afternoon", or "Good Night" based on time input.
+time = int(input("Enter time in 24-hour format: "))
+if 5 <= time < 12:
+    print("Good Morning")
+elif 12 <= time < 18:
+    print("Good Afternoon")
+else:
+    print("Good Night")
+
+# 32. Check if a number is negative, zero, or positive.
+num = -5
+if num > 0:
+    print("Positive")
+elif num == 0:
+    print("Zero")
+else:
+    print("Negative")
+
+# 33. Check if a person is a child (0–12), teenager (13–19), or adult (20+).
+age = 15
+if age <= 12:
+    print("Child")
+elif age <= 19:
+    print("Teenager")
+else:
+    print("Adult")
+
+# 34. Write a program to compare lengths of two strings.
+str1 = "apple"
+str2 = "banana"
+if len(str1) == len(str2):
+    print("Both strings are equal in length")
+elif len(str1) > len(str2):
+    print("First string is longer")
+else:
+    print("Second string is longer")
+
+# 35. Write a program to check login: ask for username and password.
+username = "yasir"
+password = "5656"
+user_name = input("Enter username: ")
+user_pass = input("Enter password: ")
+if user_name == username and user_pass == password:
+    print("Login successful")
+else:
+    print("Invalid credentials")
+
+# 36. Take a number and print whether it’s a Prime or not.
+num = 29
+is_prime = True
+if num <= 1:
+    is_prime = False
+else:
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+print("Prime" if is_prime else "Not Prime")
+
+# 37. Write a program to check if the year is a century year or not.
+year = 2000
+if year % 100 == 0:
+    print("Century Year")
+else:
+    print("Not a Century Year")
+
+# 38. Write a program to find the type of triangle (equilateral, isosceles, scalene).
+a, b, c = 5, 5, 8
+if a == b == c:
+    print("Equilateral Triangle")
+elif a == b or b == c or a == c:
+    print("Isosceles Triangle")
+else:
+    print("Scalene Triangle")
+
+# 39. Write a program to check whether a number is a perfect square.
+num = 49
+if int(num ** 0.5) ** 2 == num:
+    print("Perfect Square")
+else:
+    print("Not a Perfect Square")
+
+# 40. Write a program to check whether a number is an Armstrong number.
+num = 153
+order = len(str(num))
+sum_val = sum(int(digit) ** order for digit in str(num))
+if num == sum_val:
+    print("Armstrong Number")
+else:
+    print("Not an Armstrong Number")
+
+# 41. Take a character input and print whether it’s an alphabet, digit, or symbol.
+ch = input("Enter a character: ")
+if ch.isalpha():
+    print("Alphabet")
+elif ch.isdigit():
+    print("Digit")
+else:
+    print("Symbol")
+
+# 42. Check if a number is in the Fibonacci series (first 20 numbers).
+n = 13
+fib = [0, 1]
+for i in range(2, 20):
+    fib.append(fib[-1] + fib[-2])
+if n in fib:
+    print(f"{n} is in Fibonacci series")
+else:
+    print(f"{n} is not in Fibonacci series")
+
+# 43. Check if a number is a palindrome (e.g. 121).
+num = 121
+if str(num) == str(num)[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+# 44. Take input from user and print if it’s a weekday or weekend.
+day = input("Enter a day: ").lower()
+if day in ["saturday", "sunday"]:
+    print("Weekend")
+else:
+    print("Weekday")
+
+# 45. Based on a person’s age, print if they are eligible for driving, voting, or both.
+age = 20
+if age >= 18 and age >= 16:
+    print("Eligible for both driving and voting")
+elif age >= 18:
+    print("Eligible for voting only")
+elif age >= 16:
+    print("Eligible for driving only")
+else:
+    print("Not eligible for driving or voting")
+
+# 46. Write a program to check whether a string is a palindrome.
+text = "madam"
+if text == text[::-1]:
+    print("Palindrome String")
+else:
+    print("Not a Palindrome String")
+
+# 47. Write a program to find the second largest number among three.
+a, b, c = 10, 20, 15
+nums = [a, b, c]
+nums.sort()
+print("Second largest is", nums[1])
+
+# 48. Create a number guessing game using if-else.
+secret = 7
+guess = int(input("Guess the number: "))
+if guess == secret:
+    print("Correct guess!")
+elif guess > secret:
+    print("Too high!")
+else:
+    print("Too low!")
+
+# 49. Ask the user to enter a month name and print the number of days.
+month = input("Enter month: ").lower()
+if month in ["january", "march", "may", "july", "august", "october", "december"]:
+    print("31 days")
+elif month in ["april", "june", "september", "november"]:
+    print("30 days")
+elif month == "february":
+    print("28 or 29 days")
+else:
+    print("Invalid month")
+
+# 50. Take a temperature input and categorize it as cold, warm, or hot.
+temp = int(input("Enter temperature: "))
+if temp < 15:
+    print("Cold")
+elif 15 <= temp <= 30:
+    print("Warm")
+else:
+    print("Hot")
+
