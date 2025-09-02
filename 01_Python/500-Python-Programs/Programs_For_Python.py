@@ -1123,6 +1123,7 @@ for row in matrix:
     print("Row sum:", sum(row)) 
 
 # 50.	Write a program to print prime numbers in a given range using nested loops.
+
 low = int(input("Enter lower bound: "))
 high = int(input("Enter upper bound: "))
 for num in range(low, high+1):
