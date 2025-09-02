@@ -4,9 +4,7 @@
 # ============================================
 # --------------------------------------------
 
-
 # Every Part have multiple sections of a particular concept and all the questions are in sequences
-
 
 # ============================================
 # PART 1: Python Basics (Variables, Data Types, Operators) — 50 Questions
@@ -306,7 +304,6 @@ print(f"Product: {product}\nPrice: {price} USD")
 # PART 2: Conditional Statements (if, elif, else) — 50 Logic-Building Questions
 # ============================================
 
-
 # --------------------------------------------
 # A. Basic If Conditions (25 Questions)
 # --------------------------------------------
@@ -490,8 +487,6 @@ if marks >= 40:
     print("Student has passed")
 else:
     print("Student has failed")
-
-
 
 # --------------------------------------------
 # B. If...Else and Elif Conditions (25 Questions)
@@ -723,3 +718,420 @@ elif 15 <= temp <= 30:
 else:
     print("Hot")
 
+# ============================================
+# PART 3: Loops in Python (for, while, nested) — 50 Logic-Building Questions
+# ============================================
+
+# --------------------------------------------
+# A. Basic for and while Loops (25 Questions)
+# --------------------------------------------
+# 1.	Print numbers from 1 to 10 using a for loop.
+for i in range(1, 11):
+    print(i)
+# 2.	Print numbers from 10 to 1 using a while loop.
+i = 10
+while i >=1:
+    print(i)
+    i =  i - 1
+# 3.	Print even numbers from 1 to 50.
+for i in range(1, 51):
+    if i % 2 == 0:
+        print(i)
+# using while Loop 
+i = 1
+while i <= 50:
+    if i % 2 == 0:
+        print(i)
+    i += 1
+    
+# 4.	Print all odd numbers between 1 and 100.
+for i in range(1, 101):
+    if i % 3 == 0:
+        print(i)
+    
+# using while loop
+i = 1
+while i <= 101:   # loop continues until 101
+    if i % 3 == 0:
+        print(i)
+    i = i + 1
+# 5.	Print the table of 5 (e.g., 5, 10, 15,... up to 50).
+for i in range(1, 55):
+    if i % 5 == 0:
+        print(i)
+
+#using while loop
+i = 1
+while i <= 10:
+    print(5 * i)
+    i += 1
+
+# 6. Print the first 10 multiples of a number entered by the user
+num = int(input("Enter a number: "))
+print("First 10 multiples of", num, "(for loop):")
+for i in range(1, 11):
+    print(num * i)
+
+print("First 10 multiples of", num, "(while loop):")
+i = 1
+while i <= 10:
+    print(num * i)
+    i += 1
+
+# 7. Print the sum of numbers from 1 to n (input by user)
+n = int(input("Enter n: "))
+sum1 = 0
+for i in range(1, n + 1):
+    sum1 += i
+print("Sum using for loop:", sum1)
+
+sum2, i = 0, 1
+while i <= n:
+    sum2 += i
+    i += 1
+print("Sum using while loop:", sum2)
+
+# 8. Print the product of numbers from 1 to 10
+prod = 1
+for i in range(1, 11):
+    prod *= i
+print("Product using for loop:", prod)
+
+prod2, i = 1, 1
+while i <= 10:
+    prod2 *= i
+    i += 1
+print("Product using while loop:", prod2)
+
+# 9. Factorial of a number using loop
+n = int(input("Enter a number to find factorial: "))
+fact = 1
+for i in range(1, n + 1):
+    fact *= i
+print("Factorial using for loop:", fact)
+
+fact2, i = 1, 1
+while i <= n:
+    fact2 *= i
+    i += 1
+print("Factorial using while loop:", fact2)
+
+# 10. Reverse of a given number
+num = int(input("Enter a number to reverse: "))
+rev = 0
+temp = num
+while temp > 0:
+    digit = temp % 10
+    rev = rev * 10 + digit
+    temp //= 10
+print("Reverse:", rev)
+
+# 11. Count digits in a number
+num = int(input("Enter a number: "))
+count = 0
+temp = num
+while temp > 0:
+    temp //= 10
+    count += 1
+print("Digits count:", count)
+
+# 12. Sum of digits of a number
+num = int(input("Enter a number: "))
+sum_digits = 0
+temp = num
+while temp > 0:
+    sum_digits += temp % 10
+    temp //= 10
+print("Sum of digits:", sum_digits)
+
+# 13. Check palindrome number
+num = int(input("Enter a number to check palindrome: "))
+temp, rev = num, 0
+while temp > 0:
+    rev = rev * 10 + temp % 10
+    temp //= 10
+if num == rev:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+# 14. Fibonacci series up to n terms
+n = int(input("Enter n terms for Fibonacci: "))
+a, b = 0, 1
+print("Fibonacci series:", end=" ")
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+print()
+
+# 15. Largest number in a list
+nums = list(map(int, input("Enter numbers separated by space: ").split()))
+largest = nums[0]
+for num in nums:
+    if num > largest:
+        largest = num
+print("Largest:", largest)
+
+# 16. Smallest number in a list
+smallest = nums[0]
+for num in nums:
+    if num < smallest:
+        smallest = num
+print("Smallest:", smallest)
+
+# 17. Average of n numbers
+nums = list(map(int, input("Enter numbers separated by space: ").split()))
+avg = sum(nums) / len(nums)
+print("Average:", avg)
+
+# 18. Count numbers divisible by 7 (1–100)
+count = 0
+for i in range(1, 101):
+    if i % 7 == 0:
+        count += 1
+print("Count divisible by 7 (for loop):", count)
+
+# 19. ASCII values of characters in a string
+s = input("Enter a string: ")
+for ch in s:
+    print(f"{ch} -> {ord(ch)}")
+
+# 20. Print characters of a string in reverse
+s = input("Enter a string: ")
+print("Reverse using for loop:")
+for i in range(len(s) - 1, -1, -1):
+    print(s[i], end="")
+print()
+
+# 21. Square of first n natural numbers
+n = int(input("Enter n: "))
+print("Squares:")
+for i in range(1, n + 1):
+    print(i, "->", i * i)
+
+# 22. Cube of numbers from 1 to 20
+print("Cubes from 1 to 20:")
+for i in range(1, 21):
+    print(i, "->", i ** 3)
+
+# 23. Print only vowels from a string
+s = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+print("Vowels:", end=" ")
+for ch in s:
+    if ch in vowels:
+        print(ch, end=" ")
+print()
+
+# 24. Print only consonants from a string
+print("Consonants:", end=" ")
+for ch in s:
+    if ch.isalpha() and ch not in vowels:
+        print(ch, end=" ")
+print()
+
+# 25. First 10 prime numbers
+print("First 10 prime numbers:")
+count, num = 0, 2
+while count < 10:
+    prime = True
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            prime = False
+            break
+    if prime:
+        print(num, end=" ")
+        count += 1
+    num += 1
+print()
+
+# --------------------------------------------
+# B. Nested Loops & Pattern Printing (25 Questions)
+# --------------------------------------------
+
+# 26.	Print a square pattern of * with 5 rows and 5 columns.
+for i in range(5):
+    print("* " * 5)
+
+# 27.	Print a right-angled triangle of *.
+for i in range(1, 6):
+    print("* " * i)
+
+# 28.	Print a number triangle:
+# 1
+# 1 2
+# 1 2 3
+for i in range(1, 6):
+    for j in range(1, i + 1):
+        print(j, end=" ")
+    print()
+
+# 29.	Print a reverse number triangle:
+# 3 2 1
+# 2 1
+# 1
+for i in range(3, 0, -1):
+    for j in range(i, 0, -1):
+        print(j, end=" ")
+    print()
+
+# 30.	Print an inverted triangle of *.
+for i in range(5, 0, -1):
+    print("* " * i)
+
+# 31.	Print a multiplication table from 1 to 10.
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(f"{i*j:3}", end=" ")
+    print()
+
+# 32.	Print the sum of each row in a 2D list.
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+for row in matrix:
+    print("Row sum:", sum(row))
+
+# 33.	Print the pattern of alternating 1s and 0s.
+for i in range(5):
+    for j in range(5):
+        print((i+j)%2, end=" ")
+    print()
+
+# 34.	Print the following:
+# A
+# A B
+# A B C
+for i in range(1, 4):
+    for j in range(65, 65+i):  # ASCII 65 = 'A'
+        print(chr(j), end=" ")
+    print()
+
+# 35.	Print only even rows in a nested pattern loop.
+for i in range(1, 6):
+    if i % 2 == 0:
+        print("* " * i)
+
+# 36.	Print a triangle of alphabets using ASCII values.
+for i in range(1, 6):
+    for j in range(65, 65 + i):
+        print(chr(j), end=" ")
+    print()
+   
+# 37.	Print the diamond pattern using *.
+n = 5
+for i in range(1, n+1):
+    print(" "*(n-i) + "* " * i)
+for i in range(n-1, 0, -1):
+    print(" "*(n-i) + "* " * i)
+
+# 38.	Print pyramid of numbers:
+#   1
+#  1 2
+# 1 2 3
+for i in range(1, 6):
+    print(" "*(5-i), end="")
+    for j in range(1, i+1):
+        print(j, end=" ")
+    print()
+
+# 39.	Create a program that takes a number and prints a hollow square using *.
+size = 5
+for i in range(size):
+    for j in range(size):
+        if i==0 or i==size-1 or j==0 or j==size-1:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+    print()
+
+# 40.	Print numbers in the following pattern:
+# 1
+# 2 3
+# 4 5 6
+num = 1
+for i in range(1, 5):
+    for j in range(i):
+        print(num, end=" ")
+        num += 1
+    print()
+
+# 41.	Generate all pairs (i, j) such that 1 ≤ i, j ≤ 3.
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"({i},{j})", end=" ")
+    print()
+
+# 42.	Generate a multiplication chart up to 12×12.
+for i in range(1, 13):
+    for j in range(1, 13):
+        print(f"{i*j:3}", end=" ")
+    print()
+
+# 43.	Count the number of vowels and consonants in a string using loop.
+s = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+v_count = 0
+c_count = 0
+for ch in s:
+    if ch.isalpha():
+        if ch in vowels:
+            v_count += 1
+        else:
+            c_count += 1
+print("Vowels:", v_count, "Consonants:", c_count)
+
+# 44.	Print all words in a sentence line by line.
+sentence = input("Enter a sentence: ")
+for word in sentence.split():
+    print(word)
+
+# 45.	Print even and odd numbers in different lines from a list.
+nums = list(map(int, input("Enter numbers separated by space: ").split()))
+print("Even numbers:")
+for n in nums:
+    if n % 2 == 0:
+        print(n, end=" ")
+print("\nOdd numbers:")
+for n in nums:
+    if n % 2 != 0:
+        print(n, end=" ")
+print()
+
+# 46.	Print a table of all odd numbers from 1 to 20.
+for i in range(1, 21, 2):
+    print(i, end=" ")
+print()
+
+# 47.	Find how many times a character appears in a string.
+s = input("Enter a string: ")
+ch = input("Enter character to count: ")
+count = 0
+for c in s:
+    if c == ch:
+        count += 1
+print(f"'{ch}' appears {count} times")
+
+# 48.	Reverse a string using a loop (don’t use slicing).
+s = input("Enter a string to reverse: ")
+rev = ""
+for ch in s:
+    rev = ch + rev
+print("Reversed string:", rev)
+
+# 49.	Sum the elements of each row in a 2D matrix.
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+for row in matrix:
+    print("Row sum:", sum(row)) 
+
+# 50.	Write a program to print prime numbers in a given range using nested loops.
+low = int(input("Enter lower bound: "))
+high = int(input("Enter upper bound: "))
+for num in range(low, high+1):
+    if num > 1:
+        prime = True
+        for i in range(2, int(num**0.5)+1):
+            if num % i == 0:
+                prime = False
+                break
+        if prime:
+            print(num, end=" ")
+print()
