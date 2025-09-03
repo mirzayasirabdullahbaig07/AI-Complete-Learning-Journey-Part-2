@@ -1136,3 +1136,143 @@ for num in range(low, high+1):
         if prime:
             print(num, end=" ")
 print()
+
+# ============================================
+# PART 4: Functions & Recursion in Python — 50 Logic-Building Questions
+# ============================================
+
+# --------------------------------------------
+# A. Basic Function Logic (25 Questions)
+# --------------------------------------------
+
+# 1. Write a function to add two numbers.
+def add_numbers(a, b):
+    return a + b
+
+# 2. Write a function to return the square of a number.
+def square_number(n):
+    return n * n
+
+# 3. Write a function that returns the largest of three numbers.
+def largest_of_three(a, b, c):
+    return max(a, b, c)
+
+# 4. Write a function to check if a number is even or odd.
+def is_even_or_odd(n):
+    return "Even" if n % 2 == 0 else "Odd"
+
+# 5. Write a function to check if a number is positive, negative, or zero.
+def check_number(n):
+    if n > 0:
+        return "Positive"
+    elif n < 0:
+        return "Negative"
+    else:
+        return "Zero"
+
+# 6. Write a function that returns the factorial of a number.
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+# 7. Write a function to check whether a number is prime.
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# 8. Write a function to print the multiplication table of a number.
+def multiplication_table(n):
+    return [n * i for i in range(1, 11)]
+
+# 9. Write a function to calculate the power of a number (x^y).
+def power(x, y):
+    return x ** y
+
+# 10. Write a function that returns the sum of all elements in a list.
+def sum_list(lst):
+    return sum(lst)
+
+# 11. Write a function that returns the maximum element from a list.
+def max_in_list(lst):
+    return max(lst)
+
+# 12. Write a function to reverse a string.
+def reverse_string(s):
+    return s[::-1]
+
+# 13. Write a function to count the number of vowels in a string.
+def count_vowels(s):
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in s if char in vowels)
+
+# 14. Write a function to check if a string is a palindrome.
+def is_palindrome(s):
+    return s == s[::-1]
+
+# 15. Write a function to convert Celsius to Fahrenheit.
+def celsius_to_fahrenheit(c):
+    return (c * 9/5) + 32
+
+# 16. Write a function to remove duplicates from a list.
+def remove_duplicates(lst):
+    return list(set(lst))
+
+# 17. Write a function to check if a number is an Armstrong number.
+def is_armstrong(n):
+    digits = str(n)
+    power_len = len(digits)
+    return n == sum(int(d)**power_len for d in digits)
+
+# 18. Write a function to find the GCD of two numbers.
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+# 19. Write a function to find the LCM of two numbers.
+def lcm(a, b):
+    return abs(a * b) // gcd(a, b)
+
+# 20. Write a function to return all even numbers in a list.
+def even_numbers(lst):
+    return [x for x in lst if x % 2 == 0]
+
+# 21. Write a function that returns the second largest number in a list.
+def second_largest(lst):
+    unique = list(set(lst))
+    unique.sort()
+    return unique[-2] if len(unique) >= 2 else None
+
+# 22. Write a function to print Fibonacci series up to n terms.
+def fibonacci(n):
+    series = []
+    a, b = 0, 1
+    for _ in range(n):
+        series.append(a)
+        a, b = b, a + b
+    return series
+
+# 23. Write a function to find the length of a list without using len().
+def list_length(lst):
+    count = 0
+    for _ in lst:
+        count += 1
+    return count
+
+# 24. Write a function to find the average of numbers in a list.
+def average_list(lst):
+    return sum(lst) / len(lst) if lst else 0
+
+# 25. Write a function to count digits in an integer.
+def count_digits(n):
+    return len(str(abs(n)))
+
+B. Recursion-Based Logic (25 Questions)
