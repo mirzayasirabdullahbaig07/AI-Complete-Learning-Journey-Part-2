@@ -1275,4 +1275,172 @@ def average_list(lst):
 def count_digits(n):
     return len(str(abs(n)))
 
-B. Recursion-Based Logic (25 Questions)
+# --------------------------------------------
+# B. Recursion-Based Logic (25 Questions)
+# --------------------------------------------
+
+# 26. Write a recursive function to calculate factorial.
+def recursive_factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * recursive_factorial(n - 1)
+
+# 27. Write a recursive function to print numbers from 1 to n.
+def print_1_to_n(n):
+    if n > 0:
+        print_1_to_n(n - 1)
+        print(n, end=" ")
+
+# 28. Write a recursive function to print numbers from n to 1.
+def print_n_to_1(n):
+    if n > 0:
+        print(n, end=" ")
+        print_n_to_1(n - 1)
+
+# 29. Write a recursive function to calculate the sum of digits.
+def sum_of_digits(n):
+    if n == 0:
+        return 0
+    return n % 10 + sum_of_digits(n // 10)
+
+# 30. Write a recursive function to reverse a number.
+def reverse_number(n, rev=0):
+    if n == 0:
+        return rev
+    return reverse_number(n // 10, rev * 10 + n % 10)
+
+# 31. Write a recursive function to calculate x^y (power function).
+def recursive_power(x, y):
+    if y == 0:
+        return 1
+    return x * recursive_power(x, y - 1)
+
+# 32. Write a recursive function to print Fibonacci numbers.
+def recursive_fibonacci(n, a=0, b=1):
+    if n > 0:
+        print(a, end=" ")
+        recursive_fibonacci(n - 1, b, a + b)
+
+# 33. Write a recursive function to find GCD of two numbers.
+def recursive_gcd(a, b):
+    if b == 0:
+        return a
+    return recursive_gcd(b, a % b)
+
+# 34. Write a recursive function to count the number of elements in a list.
+def count_elements(lst):
+    if lst == []:
+        return 0
+    return 1 + count_elements(lst[1:])
+
+# 35. Write a recursive function to find the sum of a list.
+def sum_list_recursive(lst):
+    if lst == []:
+        return 0
+    return lst[0] + sum_list_recursive(lst[1:])
+
+# 36. Write a recursive function to check if a string is a palindrome.
+def is_palindrome_recursive(s):
+    if len(s) <= 1:
+        return True
+    if s[0] != s[-1]:
+        return False
+    return is_palindrome_recursive(s[1:-1])
+
+# 37. Write a recursive function to find the maximum element in a list.
+def max_in_list_recursive(lst):
+    if len(lst) == 1:
+        return lst[0]
+    return max(lst[0], max_in_list_recursive(lst[1:]))
+
+# 38. Write a recursive function to print a pattern of *.
+def star_pattern(n):
+    if n > 0:
+        star_pattern(n - 1)
+        print("*" * n)
+
+# 39. Write a recursive function to find the nth term of a Fibonacci sequence.
+def nth_fibonacci(n):
+    if n <= 1:
+        return n
+    return nth_fibonacci(n - 1) + nth_fibonacci(n - 2)
+
+# 40. Write a recursive function to find the sum of the first n natural numbers.
+def sum_natural(n):
+    if n == 0:
+        return 0
+    return n + sum_natural(n - 1)
+
+# 41. Write a recursive function to check if a number is prime.
+def is_prime_recursive(n, i=2):
+    if n <= 2:
+        return n == 2
+    if n % i == 0:
+        return False
+    if i * i > n:
+        return True
+    return is_prime_recursive(n, i + 1)
+
+# 42. Write a recursive function to find the product of digits of a number.
+def product_of_digits(n):
+    if n == 0:
+        return 1
+    return (n % 10) * product_of_digits(n // 10)
+
+# 43. Write a recursive function to count vowels in a string.
+def count_vowels_recursive(s):
+    vowels = "aeiouAEIOU"
+    if s == "":
+        return 0
+    return (1 if s[0] in vowels else 0) + count_vowels_recursive(s[1:])
+
+# 44. Write a recursive function to flatten a nested list.
+def flatten_list(lst):
+    if lst == []:
+        return []
+    if isinstance(lst[0], list):
+        return flatten_list(lst[0]) + flatten_list(lst[1:])
+    return [lst[0]] + flatten_list(lst[1:])
+
+# 45. Write a recursive function to compute sum of squares of first n natural numbers.
+def sum_of_squares(n):
+    if n == 0:
+        return 0
+    return n * n + sum_of_squares(n - 1)
+
+# 46. Write a recursive function to find the binary representation of a number.
+def decimal_to_binary(n):
+    if n == 0:
+        return "0"
+    if n == 1:
+        return "1"
+    return decimal_to_binary(n // 2) + str(n % 2)
+
+# 47. Write a recursive function to check for Armstrong number.
+def is_armstrong_recursive(n, power=None):
+    if power is None:
+        power = len(str(n))
+    if n == 0:
+        return 0
+    return (n % 10) ** power + is_armstrong_recursive(n // 10, power)
+
+# 48. Write a recursive function to calculate the length of a string.
+def string_length(s):
+    if s == "":
+        return 0
+    return 1 + string_length(s[1:])
+
+# 49. Write a recursive function to generate all subsets of a set.
+def subsets(lst):
+    if lst == []:
+        return [[]]
+    first, rest = lst[0], lst[1:]
+    sub_rest = subsets(rest)
+    return sub_rest + [[first] + s for s in sub_rest]
+
+# 50. Write a recursive function to calculate factorial without using return (print inline).
+def factorial_inline(n, result=1):
+    if n == 0:
+        print("Factorial:", result)
+    else:
+        factorial_inline(n - 1, result * n)
