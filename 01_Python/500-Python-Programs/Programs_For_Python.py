@@ -1444,3 +1444,331 @@ def factorial_inline(n, result=1):
         print("Factorial:", result)
     else:
         factorial_inline(n - 1, result * n)
+
+
+
+
+
+
+# ============================================
+# PART 5: String Manipulation in Python — 50 Logic-Building Questions
+# ============================================
+
+# --------------------------------------------
+# A. Basic String Operations (25 Questions)
+# --------------------------------------------
+
+# 1. Count the number of characters in a string.
+s = "hello world"
+print(len(s))
+
+# 2. Count the number of vowels and consonants in a string.
+s = "hello world"
+vowels = "aeiouAEIOU"
+v_count = sum(1 for ch in s if ch in vowels)
+c_count = sum(1 for ch in s if ch.isalpha() and ch not in vowels)
+print("Vowels:", v_count, "Consonants:", c_count)
+
+# 3. Reverse a string without using slicing.
+s = "hello"
+rev = ""
+for ch in s:
+    rev = ch + rev
+print(rev)
+
+# 4. Check if a string is a palindrome.
+s = "madam"
+print(s == s[::-1])
+
+# 5. Count the frequency of each character in a string.
+s = "banana"
+freq = {}
+for ch in s:
+    freq[ch] = freq.get(ch, 0) + 1
+print(freq)
+
+# 6. Convert uppercase to lowercase and vice versa.
+s = "HeLLo"
+print(s.swapcase())
+
+# 7. Remove all spaces from a string.
+s = "hello world python"
+print(s.replace(" ", ""))
+
+# 8. Remove all vowels from a string.
+s = "hello world"
+vowels = "aeiouAEIOU"
+print("".join(ch for ch in s if ch not in vowels))
+
+# 9. Replace all vowels with a specific character.
+s = "hello world"
+print("".join("*" if ch in vowels else ch for ch in s))
+
+# 10. Find the first non-repeating character in a string.
+s = "aabbcde"
+for ch in s:
+    if s.count(ch) == 1:
+        print("First non-repeating:", ch)
+        break
+
+# 11. Find the first repeating character in a string.
+s = "abcdaef"
+seen = set()
+for ch in s:
+    if ch in seen:
+        print("First repeating:", ch)
+        break
+    seen.add(ch)
+
+# 12. Count the number of words in a sentence.
+s = "Hello world from Python"
+print(len(s.split()))
+
+# 13. Capitalize the first letter of each word in a sentence.
+s = "hello world from python"
+print(s.title())
+
+# 14. Check if two strings are anagrams of each other.
+s1, s2 = "listen", "silent"
+print(sorted(s1) == sorted(s2))
+
+# 15. Remove all special characters from a string.
+import re
+s = "Hello@World#123!"
+print(re.sub(r'[^A-Za-z0-9 ]+', '', s))
+
+# 16. Find the longest word in a sentence.
+s = "Python is a powerful programming language"
+words = s.split()
+print(max(words, key=len))
+
+# 17. Count how many times a substring occurs in a string.
+s = "banana"
+print(s.count("ana"))
+
+# 18. Reverse the words in a sentence.
+s = "Python is fun"
+print(" ".join(reversed(s.split())))
+
+# 19. Replace a word in a sentence with another word.
+s = "I love Python"
+print(s.replace("Python", "Java"))
+
+# 20. Check if a string contains only digits.
+s = "12345"
+print(s.isdigit())
+
+# 21. Count uppercase and lowercase letters separately.
+s = "HeLLo World"
+upper = sum(1 for ch in s if ch.isupper())
+lower = sum(1 for ch in s if ch.islower())
+print("Uppercase:", upper, "Lowercase:", lower)
+
+# 22. Remove duplicate characters from a string.
+s = "programming"
+result = "".join(dict.fromkeys(s))
+print(result)
+
+# 23. Find the most frequent character in a string.
+s = "mississippi"
+freq = {}
+for ch in s:
+    freq[ch] = freq.get(ch, 0) + 1
+print(max(freq, key=freq.get))
+
+# 24. Check whether a string starts and ends with the same character.
+s = "radar"
+print(s[0] == s[-1])
+
+# 25. Swap the first and last characters of a string.
+s = "python"
+if len(s) > 1:
+    s = s[-1] + s[1:-1] + s[0]
+print(s)
+
+
+
+# --------------------------------------------
+# B. Intermediate String Logic (25 Questions)
+# --------------------------------------------
+
+# 26. Check if two strings are rotations of each other
+def are_rotations(s1, s2):
+    return len(s1) == len(s2) and s2 in (s1 + s1)
+# print(are_rotations("abcd", "cdab"))  # True
+
+# 27. Find all substrings of a string
+def all_substrings(s):
+    return [s[i:j] for i in range(len(s)) for j in range(i+1, len(s)+1)]
+# print(all_substrings("abc"))
+
+# 28. Generate all permutations of a string
+from itertools import permutations
+def string_permutations(s):
+    return [''.join(p) for p in permutations(s)]
+# print(string_permutations("abc"))
+
+# 29. Compress a string (aabbb → a2b3)
+def compress_string(s):
+    result, count = "", 1
+    for i in range(1, len(s)+1):
+        if i < len(s) and s[i] == s[i-1]:
+            count += 1
+        else:
+            result += s[i-1] + (str(count) if count > 1 else "")
+            count = 1
+    return result
+# print(compress_string("aabbb"))  # a2b3
+
+# 30. Expand a compressed string (a2b3 → aabbb)
+def expand_string(s):
+    result, i = "", 0
+    while i < len(s):
+        char = s[i]
+        i += 1
+        num = ""
+        while i < len(s) and s[i].isdigit():
+            num += s[i]
+            i += 1
+        result += char * (int(num) if num else 1)
+    return result
+# print(expand_string("a2b3"))  # aabbb
+
+# 31. Count the number of alphanumeric characters in a string
+def count_alphanumeric(s):
+    return sum(ch.isalnum() for ch in s)
+# print(count_alphanumeric("Hello 123!"))
+
+# 32. Check if a string contains all vowels
+def contains_all_vowels(s):
+    vowels = set("aeiou")
+    return vowels.issubset(set(s.lower()))
+# print(contains_all_vowels("education"))
+
+# 33. Find the common characters between two strings
+def common_characters(s1, s2):
+    return ''.join(set(s1) & set(s2))
+# print(common_characters("hello", "world"))
+
+# 34. Remove all punctuation marks from a string
+import string
+def remove_punctuation(s):
+    return ''.join(ch for ch in s if ch not in string.punctuation)
+# print(remove_punctuation("Hello, World!"))
+
+# 35. Find the longest palindrome substring
+def longest_palindrome(s):
+    def expand(l, r):
+        while l >= 0 and r < len(s) and s[l] == s[r]:
+            l, r = l-1, r+1
+        return s[l+1:r]
+    longest = ""
+    for i in range(len(s)):
+        longest = max(longest, expand(i, i), expand(i, i+1), key=len)
+    return longest
+# print(longest_palindrome("babad"))
+
+# 36. Convert a sentence to title case
+def to_title_case(s):
+    return ' '.join(word.capitalize() for word in s.split())
+# print(to_title_case("hello world python"))
+
+# 37. Sort the characters in a string alphabetically
+def sort_string(s):
+    return ''.join(sorted(s))
+# print(sort_string("python"))
+
+# 38. Group digits, letters, and special characters separately
+def group_chars(s):
+    digits = ''.join(ch for ch in s if ch.isdigit())
+    letters = ''.join(ch for ch in s if ch.isalpha())
+    specials = ''.join(ch for ch in s if not ch.isalnum())
+    return digits, letters, specials
+# print(group_chars("a1b2c3!@#"))
+
+# 39. Implement find() without using it
+def custom_find(s, sub):
+    for i in range(len(s) - len(sub) + 1):
+        if s[i:i+len(sub)] == sub:
+            return i
+    return -1
+# print(custom_find("hello", "lo"))  # 3
+
+# 40. Implement replace() without using it
+def custom_replace(s, old, new):
+    result, i = "", 0
+    while i < len(s):
+        if s[i:i+len(old)] == old:
+            result += new
+            i += len(old)
+        else:
+            result += s[i]
+            i += 1
+    return result
+# print(custom_replace("hello world", "world", "Python"))
+
+# 41. Split string into list of characters without using list()
+def split_chars(s):
+    return [ch for ch in s]
+# print(split_chars("hello"))
+
+# 42. Replace all duplicate characters with underscores
+def replace_duplicates(s):
+    seen, result = set(), ""
+    for ch in s:
+        if ch in seen:
+            result += "_"
+        else:
+            seen.add(ch)
+            result += ch
+    return result
+# print(replace_duplicates("programming"))
+
+# 43. Find the first capital letter in a string using loop
+def first_capital(s):
+    for ch in s:
+        if ch.isupper():
+            return ch
+    return None
+# print(first_capital("helloWorld"))
+
+# 44. Print every alternate character from a string
+def alternate_chars(s):
+    return s[::2]
+# print(alternate_chars("abcdef"))
+
+# 45. Count how many times each word appears in a sentence
+from collections import Counter
+def word_count(sentence):
+    words = sentence.split()
+    return Counter(words)
+# print(word_count("this is a test this is"))
+
+# 46. Identify and print palindromic words in a sentence
+def palindromic_words(sentence):
+    return [word for word in sentence.split() if word == word[::-1]]
+# print(palindromic_words("madam anna went to kayak"))
+
+# 47. Remove the last word from a sentence
+def remove_last_word(sentence):
+    words = sentence.split()
+    return ' '.join(words[:-1])
+# print(remove_last_word("This is a sentence"))
+
+# 48. Print the middle character of a string
+def middle_char(s):
+    mid = len(s) // 2
+    return s[mid] if len(s) % 2 else s[mid-1:mid+1]
+# print(middle_char("hello"))
+# print(middle_char("python"))
+
+# 49. Convert a string to a list of ASCII values
+def string_to_ascii(s):
+    return [ord(ch) for ch in s]
+# print(string_to_ascii("abc"))
+
+# 50. Convert a list of ASCII values back to a string
+def ascii_to_string(ascii_list):
+    return ''.join(chr(num) for num in ascii_list)
+# print(ascii_to_string([97, 98, 99]))
+
