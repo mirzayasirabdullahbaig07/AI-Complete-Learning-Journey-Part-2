@@ -1446,10 +1446,6 @@ def factorial_inline(n, result=1):
         factorial_inline(n - 1, result * n)
 
 
-
-
-
-
 # ============================================
 # PART 5: String Manipulation in Python — 50 Logic-Building Questions
 # ============================================
@@ -1772,3 +1768,359 @@ def ascii_to_string(ascii_list):
     return ''.join(chr(num) for num in ascii_list)
 # print(ascii_to_string([97, 98, 99]))
 
+# ============================================
+# PART 6: Python Data Structures — 50 Logic-Building Questions  
+# ============================================
+
+# --------------------------------------------
+# A. List-Based Logic (15 Questions)
+# --------------------------------------------
+
+# 1. Create a list and add 10 numbers entered by the user
+nums = []
+for i in range(10):
+    n = int(input(f"Enter number {i+1}: "))
+    nums.append(n)
+print("Final List:", nums)
+
+# 2. Find the maximum and minimum elements from a list
+nums = [10, 3, 55, 7, 19]
+maximum = nums[0]
+minimum = nums[0]
+for num in nums:
+    if num > maximum:
+        maximum = num
+    if num < minimum:
+        minimum = num
+print("Max:", maximum, "Min:", minimum)
+
+# 3. Count the number of even and odd elements in a list
+nums = [1, 2, 3, 4, 5]
+even_count = 0
+odd_count = 0
+for num in nums:
+    if num % 2 == 0:
+        even_count += 1
+    else:
+        odd_count += 1
+print("Even:", even_count, "Odd:", odd_count)
+
+# 4. Separate positive and negative numbers from a list
+nums = [10, -5, 7, -2, 0]
+positive = []
+negative = []
+for num in nums:
+    if num >= 0:
+        positive.append(num)
+    else:
+        negative.append(num)
+print("Positive:", positive)
+print("Negative:", negative)
+
+# 5. Sort a list in ascending and descending order without using sort()
+nums = [4, 1, 3, 9, 7]
+for i in range(len(nums)):
+    for j in range(len(nums) - i - 1):
+        if nums[j] > nums[j + 1]:
+            nums[j], nums[j + 1] = nums[j + 1], nums[j]
+print("Ascending:", nums)
+print("Descending:", nums[::-1])
+
+# 6. Remove duplicates from a list without using set()
+nums = [1, 2, 2, 3, 4, 4, 5]
+unique = []
+for num in nums:
+    if num not in unique:
+        unique.append(num)
+print("Without Duplicates:", unique)
+
+# 7. Reverse a list using loop
+nums = [1, 2, 3, 4]
+reversed_list = []
+for i in range(len(nums) - 1, -1, -1):
+    reversed_list.append(nums[i])
+print("Reversed:", reversed_list)
+
+# 8. Merge two lists and sort the result
+list1 = [1, 4, 6]
+list2 = [2, 3, 5]
+merged = list1 + list2
+for i in range(len(merged)):
+    for j in range(len(merged) - i - 1):
+        if merged[j] > merged[j + 1]:
+            merged[j], merged[j + 1] = merged[j + 1], merged[j]
+print("Merged & Sorted:", merged)
+
+# 9. Find the second largest number in a list
+nums = [10, 20, 4, 45, 99]
+first = second = float('-inf')
+for num in nums:
+    if num > first:
+        second = first
+        first = num
+    elif num > second and num != first:
+        second = num
+print("Second Largest:", second)
+
+# 10. Rotate a list left by 2 positions
+nums = [1, 2, 3, 4, 5]
+k = 2
+rotated = nums[k:] + nums[:k]
+print("Rotated Left by 2:", rotated)
+
+# 11. Insert an element at a specific position in a list
+nums = [10, 20, 30]
+pos = 2
+element = 25
+nums = nums[:pos] + [element] + nums[pos:]
+print("After Insertion:", nums)
+
+# 12. Remove all even numbers from a list
+nums = [1, 2, 3, 4, 5, 6]
+result = []
+for num in nums:
+    if num % 2 != 0:
+        result.append(num)
+print("Without Even Numbers:", result)
+
+# 13. Count the frequency of each number in a list
+nums = [1, 2, 2, 3, 1, 4, 2]
+freq = {}
+for num in nums:
+    if num in freq:
+        freq[num] += 1
+    else:
+        freq[num] = 1
+print("Frequencies:", freq)
+
+# 14. Flatten a nested list
+nested = [[1, 2], [3, 4], [5, 6]]
+flat = []
+for sublist in nested:
+    for item in sublist:
+        flat.append(item)
+print("Flattened:", flat)
+
+# 15. Find all elements that appear more than once in a list
+nums = [4, 3, 2, 7, 8, 2, 3, 1]
+duplicates = []
+seen = []
+for num in nums:
+    if num in seen and num not in duplicates:
+        duplicates.append(num)
+    else:
+        seen.append(num)
+print("Duplicates:", duplicates)
+
+
+# --------------------------------------------
+# B. Tuple-Based Logic (10 Questions)
+# --------------------------------------------
+
+# 16. Create a tuple of 10 elements and print it
+tup = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+print("Tuple:", tup)
+
+# 17. Find the maximum and minimum value in a tuple
+tup = (10, 3, 55, 7, 19)
+print("Max:", max(tup))
+print("Min:", min(tup))
+
+# 18. Convert a tuple into a list and modify it
+tup = (1, 2, 3, 4)
+lst = list(tup)     # Convert tuple → list
+lst[1] = 99         # Modify element
+print("Modified List:", lst)
+
+# 19. Count how many times an element appears in a tuple
+tup = (1, 2, 3, 2, 4, 2, 5)
+print("Count of 2:", tup.count(2))
+
+# 20. Find the index of an element in a tuple
+tup = (10, 20, 30, 40, 50)
+print("Index of 30:", tup.index(30))
+
+# 21. Slice a tuple to get a sub-tuple
+tup = (1, 2, 3, 4, 5, 6, 7)
+sub_tup = tup[2:5]  # From index 2 to 4
+print("Sub-tuple:", sub_tup)
+
+# 22. Check if an element exists in a tuple
+tup = (10, 20, 30, 40)
+element = 30
+if element in tup:
+    print(f"{element} exists in tuple")
+else:
+    print(f"{element} does not exist in tuple")
+
+# 23. Merge two tuples
+tup1 = (1, 2, 3)
+tup2 = (4, 5, 6)
+merged = tup1 + tup2
+print("Merged Tuple:", merged)
+
+# 24. Swap two tuples
+tup1 = (10, 20, 30)
+tup2 = (40, 50, 60)
+tup1, tup2 = tup2, tup1
+print("After Swapping:")
+print("Tuple1:", tup1)
+print("Tuple2:", tup2)
+
+
+# 25. Convert a list of tuples into a dictionary
+
+lst = [("a", 1), ("b", 2), ("c", 3)]
+dictionary = dict(lst)
+print("Dictionary:", dictionary)
+
+# --------------------------------------------
+# C. Dictionary-Based Logic (15 Questions)
+# --------------------------------------------
+
+# 26. Create a dictionary of 5 students with names and marks
+students = {"Ali": 85, "Sara": 90, "John": 76, "Ayesha": 92, "David": 60}
+print("Students Dictionary:", students)
+
+
+# 27. Add a new key-value pair to a dictionary
+students["Michael"] = 88
+print("After Adding:", students)
+
+# 28. Update the value of an existing key
+students["John"] = 80
+print("After Updating John's Marks:", students)
+
+# 29. Delete a key from the dictionary
+del students["David"]
+print("After Deletion:", students)
+
+# 30. Find the key with the maximum value
+max_key = max(students, key=students.get)
+print("Key with Maximum Value:", max_key)
+
+# 31. Count the frequency of characters in a string using a dictionary
+text = "programming"
+freq = {}
+for ch in text:
+    freq[ch] = freq.get(ch, 0) + 1
+print("Character Frequency:", freq)
+
+# 32. Create a dictionary from two lists (one with keys, one with values)
+keys = ["a", "b", "c"]
+values = [1, 2, 3]
+my_dict = dict(zip(keys, values))
+print("Dictionary from Lists:", my_dict)
+
+# 33. Check if a key exists in a dictionary
+if "Sara" in students:
+    print("Sara exists in dictionary")
+else:
+    print("Sara does not exist")
+
+# 34. Merge two dictionaries
+dict1 = {"x": 10, "y": 20}
+dict2 = {"y": 30, "z": 40}
+merged = {**dict1, **dict2}
+print("Merged Dictionary:", merged)
+
+# 35. Invert a dictionary (swap keys and values)
+inverted = {v: k for k, v in students.items()}
+print("Inverted Dictionary:", inverted)
+
+# 36. Find common keys between two dictionaries
+dictA = {"a": 1, "b": 2, "c": 3}
+dictB = {"b": 4, "c": 5, "d": 6}
+common_keys = dictA.keys() & dictB.keys()
+print("Common Keys:", common_keys)
+
+# 37. Sort a dictionary by values
+sorted_dict = dict(sorted(students.items(), key=lambda item: item[1]))
+print("Sorted by Values:", sorted_dict)
+
+# 38. Create a nested dictionary and access inner values
+nested = {
+    "student1": {"name": "Ali", "marks": 85},
+    "student2": {"name": "Sara", "marks": 90}
+}
+print("Student2 Name:", nested["student2"]["name"])
+print("Student1 Marks:", nested["student1"]["marks"])
+
+# 39. Sum all the values in a dictionary
+marks_sum = sum(students.values())
+print("Sum of Marks:", marks_sum)
+
+# 40. Filter dictionary items based on condition (e.g., marks > 50)
+filtered = {k: v for k, v in students.items() if v > 50}
+print("Filtered (marks > 50):", filtered)
+
+# --------------------------------------------
+# D. Set-Based Logic (10 Questions)
+# --------------------------------------------
+
+# 41. Create a set and add 5 elements to it
+my_set = set()
+my_set.add(10)
+my_set.add(20)
+my_set.add(30)
+my_set.add(40)
+my_set.add(50)
+print("Set:", my_set)
+
+# 42. Check if an element exists in a set
+element = 30
+if element in my_set:
+    print(f"{element} exists in set")
+else:
+    print(f"{element} does not exist in set")
+
+# 43. Perform union, intersection, and difference of two sets
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+print("Union:", set1 | set2)             # or set1.union(set2)
+print("Intersection:", set1 & set2)      # or set1.intersection(set2)
+print("Difference:", set1 - set2)        # or set1.difference(set2)
+
+# 44. Remove an item from a set
+
+my_set = {1, 2, 3, 4, 5}
+my_set.remove(3)   # throws error if not present
+# my_set.discard(3)  # safer alternative
+print("After Removing 3:", my_set)
+
+# 45. Convert a list into a set to remove duplicates
+
+nums = [1, 2, 2, 3, 4, 4, 5]
+unique_set = set(nums)
+print("Unique Elements:", unique_set)
+
+# 46. Find symmetric difference between two sets
+
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+print("Symmetric Difference:", set1 ^ set2)   # or set1.symmetric_difference(set2)
+
+# 47. Check if one set is a subset of another
+
+set1 = {1, 2}
+set2 = {1, 2, 3, 4}
+print("Is set1 subset of set2?", set1.issubset(set2))
+
+# 48. Iterate through a set and print its elements
+
+my_set = {"apple", "banana", "cherry"}
+for item in my_set:
+    print(item)
+
+# 49. Add multiple items to a set using update()
+
+my_set = {1, 2}
+my_set.update([3, 4, 5])
+print("Updated Set:", my_set)
+
+# 50. Find common elements in three different sets
+set1 = {1, 2, 3, 4}
+set2 = {2, 3, 5}
+set3 = {2, 3, 6}
+common = set1 & set2 & set3
+print("Common Elements:", common)
