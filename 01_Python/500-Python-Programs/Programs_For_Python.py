@@ -2821,6 +2821,7 @@ def tower_of_hanoi(n, source, target, auxiliary):
 
 # 50. Write a recursive function to remove duplicates from a list.
 def remove_duplicates_recursive(lst):
+    
     if not lst:
         return []
     first, *rest = lst
