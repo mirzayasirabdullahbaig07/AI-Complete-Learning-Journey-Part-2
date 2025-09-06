@@ -2124,3 +2124,401 @@ set2 = {2, 3, 5}
 set3 = {2, 3, 6}
 common = set1 & set2 & set3
 print("Common Elements:", common)
+
+
+# ============================================
+# PART 7: Pattern Printing & Loops — 50 Logic-Building Questions
+# ============================================
+
+# --------------------------------------------
+# A. Star Patterns (25 Questions)
+# --------------------------------------------
+
+# 1. Print a square of * (n x n).
+def square_pattern(n):
+    for _ in range(n):
+        print("* " * n)
+
+# 2. Print a right-angled triangle pattern.
+def right_triangle(n):
+    for i in range(1, n+1):
+        print("* " * i)
+
+# 3. Print an inverted right-angled triangle.
+def inverted_right_triangle(n):
+    for i in range(n, 0, -1):
+        print("* " * i)
+
+# 4. Print a pyramid pattern of stars.
+def pyramid(n):
+    for i in range(1, n+1):
+        print(" " * (n-i) + "* " * i)
+
+# 5. Print an inverted pyramid of stars.
+def inverted_pyramid(n):
+    for i in range(n, 0, -1):
+        print(" " * (n-i) + "* " * i)
+
+# 6. Print a diamond pattern.
+def diamond(n):
+    for i in range(1, n+1):
+        print(" " * (n-i) + "* " * i)
+    for i in range(n-1, 0, -1):
+        print(" " * (n-i) + "* " * i)
+
+# 7. Print a hollow square pattern.
+def hollow_square(n):
+    for i in range(n):
+        if i == 0 or i == n-1:
+            print("* " * n)
+        else:
+            print("* " + "  " * (n-2) + "*")
+
+# 8. Print a hollow right-angled triangle.
+def hollow_right_triangle(n):
+    for i in range(1, n+1):
+        if i == 1 or i == n:
+            print("* " * i)
+        else:
+            print("* " + "  " * (i-2) + "*")
+
+# 9. Print a pattern with increasing number of stars on each line.
+def increasing_stars(n):
+    for i in range(1, n+1):
+        print("* " * i)
+
+# 10. Print a pattern with decreasing number of stars on each line.
+def decreasing_stars(n):
+    for i in range(n, 0, -1):
+        print("* " * i)
+
+# 11. Print a right-aligned triangle pattern.
+def right_aligned_triangle(n):
+    for i in range(1, n+1):
+        print(" " * (n-i) + "* " * i)
+
+# 12. Print a left-aligned inverted triangle.
+def left_aligned_inverted(n):
+    for i in range(n, 0, -1):
+        print(" " * (n-i) + "* " * i)
+
+# 13. Print a pattern of stars in the shape of a cross (+).
+def cross_pattern(n):
+    for i in range(n):
+        for j in range(n):
+            if i == n//2 or j == n//2:
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+        print()
+
+# 14. Print a pattern of stars in the shape of an X.
+def x_pattern(n):
+    for i in range(n):
+        for j in range(n):
+            if i == j or i + j == n-1:
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+        print()
+
+# 15. Print a pattern where each row has stars equal to the row number.
+def row_number_stars(n):
+    for i in range(1, n+1):
+        print("* " * i)
+
+# 16. Print a checkerboard pattern of * and space.
+def checkerboard(n):
+    for i in range(n):
+        for j in range(n):
+            if (i+j) % 2 == 0:
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+        print()
+
+# 17. Print a zig-zag star pattern.
+def zig_zag(n):
+    for i in range(3):
+        for j in range(1, n+1):
+            if (i+j) % 4 == 0 or (i == 1 and j % 4 == 0):
+                print("*", end=" ")
+            else:
+                print(" ", end=" ")
+        print()
+
+# 18. Print a half diamond pattern.
+def half_diamond(n):
+    for i in range(1, n+1):
+        print("* " * i)
+    for i in range(n-1, 0, -1):
+        print("* " * i)
+
+# 19. Print a hollow diamond pattern.
+def hollow_diamond(n):
+    for i in range(1, n+1):
+        print(" " * (n-i) + "*" + " " * (2*i-3) + ("*" if i > 1 else ""))
+    for i in range(n-1, 0, -1):
+        print(" " * (n-i) + "*" + " " * (2*i-3) + ("*" if i > 1 else ""))
+
+# 20. Print a star border with space inside.
+def star_border(n):
+    for i in range(n):
+        if i == 0 or i == n-1:
+            print("* " * n)
+        else:
+            print("* " + "  " * (n-2) + "*")
+
+# 21. Print a Pascal's triangle using stars.
+def pascal_triangle(n):
+    for i in range(n):
+        print(" " * (n-i), end="")
+        print("* " * (i+1))
+
+# 22. Print a staircase pattern.
+def staircase(n):
+    for i in range(1, n+1):
+        print(" " * (n-i) + "* " * i)
+
+# 23. Print a mirrored right triangle.
+def mirrored_right_triangle(n):
+    for i in range(1, n+1):
+        print(" " * (n-i) + "* " * i)
+
+# 24. Print a heart shape with *.
+def heart_shape(n):
+    for i in range(n//2, n, 2):
+        print(" " * ((n-i)//2) + "*" * i + " " * (n-i) + "*" * i)
+    for i in range(n, 0, -1):
+        print(" " * (n-i) + "*" * (2*i-1))
+
+# 25. Print a butterfly pattern using stars.
+def butterfly(n):
+    for i in range(1, n+1):
+        print("* " * i + "  " * (n-i) + "* " * i)
+    for i in range(n, 0, -1):
+        print("* " * i + "  " * (n-i) + "* " * i)
+
+# --------------------------------------------
+# B. Number Patterns and Loop Logic (25 Questions)
+# --------------------------------------------
+
+# 26. Print numbers from 1 to 100 using a loop.
+for i in range(1, 101):
+    print(i, end=" ")
+print("\n")
+
+# 27. Print all even numbers between 1 and 50.
+for i in range(2, 51, 2):
+    print(i, end=" ")
+print("\n")
+
+# 28. Print all odd numbers between 1 and 50.
+for i in range(1, 51, 2):
+    print(i, end=" ")
+print("\n")
+
+# 29. Print multiplication table of a number (e.g., 5).
+num = 5
+for i in range(1, 11):
+    print(f"{num} x {i} = {num*i}")
+print("\n")
+
+# 30. Print factorial of a number using a loop.
+n = 5
+fact = 1
+for i in range(1, n+1):
+    fact *= i
+print("Factorial of", n, "=", fact)
+print("\n")
+
+# 31. Print the sum of the first n natural numbers.
+n = 10
+total = 0
+for i in range(1, n+1):
+    total += i
+print("Sum of first", n, "natural numbers =", total)
+print("\n")
+
+# 32. Print a pattern of numbers increasing row-wise.
+rows = 5
+for i in range(1, rows+1):
+    for j in range(1, i+1):
+        print(j, end=" ")
+    print()
+print("\n")
+
+# 33. Print a Floyd’s triangle.
+num = 1
+rows = 5
+for i in range(1, rows+1):
+    for j in range(1, i+1):
+        print(num, end=" ")
+        num += 1
+    print()
+print("\n")
+
+# 34. Print Pascal’s triangle using numbers.
+from math import comb
+rows = 5
+for i in range(rows):
+    for j in range(rows-i):
+        print(" ", end="")
+    for j in range(i+1):
+        print(comb(i, j), end=" ")
+    print()
+print("\n")
+
+# 35. Check if a number is prime using a loop.
+n = 29
+is_prime = True
+for i in range(2, int(n**0.5)+1):
+    if n % i == 0:
+        is_prime = False
+        break
+print(n, "is Prime?" , is_prime)
+print("\n")
+
+# 36. Generate first n prime numbers.
+n = 10
+count, num = 0, 2
+while count < n:
+    for i in range(2, int(num**0.5)+1):
+        if num % i == 0:
+            break
+    else:
+        print(num, end=" ")
+        count += 1
+    num += 1
+print("\n")
+
+# 37. Generate first n Fibonacci numbers using a loop.
+n = 10
+a, b = 0, 1
+for _ in range(n):
+    print(a, end=" ")
+    a, b = b, a+b
+print("\n")
+
+# 38. Reverse a number using a loop.
+num = 12345
+rev = 0
+while num > 0:
+    rev = rev*10 + num%10
+    num //= 10
+print("Reversed:", rev)
+print("\n")
+
+# 39. Check if a number is a palindrome using loop logic.
+num = 121
+temp, rev = num, 0
+while temp > 0:
+    rev = rev*10 + temp%10
+    temp //= 10
+print(num, "is Palindrome?", num == rev)
+print("\n")
+
+# 40. Count digits in a number using loop.
+num = 123456
+count = 0
+temp = num
+while temp > 0:
+    count += 1
+    temp //= 10
+print("Digits in", num, "=", count)
+print("\n")
+
+# 41. Find the sum of digits of a number using loop.
+num = 1234
+sum_digits = 0
+temp = num
+while temp > 0:
+    sum_digits += temp % 10
+    temp //= 10
+print("Sum of digits of", num, "=", sum_digits)
+print("\n")
+
+# 42. Check if a number is Armstrong using loop.
+num = 153
+temp = num
+sum_pow = 0
+digits = len(str(num))
+while temp > 0:
+    sum_pow += (temp % 10) ** digits
+    temp //= 10
+print(num, "is Armstrong?", sum_pow == num)
+print("\n")
+
+# 43. Find the GCD of two numbers using loop.
+a, b = 56, 98
+while b:
+    a, b = b, a % b
+print("GCD =", a)
+print("\n")
+
+# 44. Find the LCM of two numbers using loop.
+x, y = 12, 15
+a, b = x, y
+while b:
+    a, b = b, a % b
+gcd = a
+lcm = (x*y)//gcd
+print("LCM =", lcm)
+print("\n")
+
+# 45. Generate a triangle pattern of numbers (1, 22, 333...).
+rows = 5
+for i in range(1, rows+1):
+    print(str(i) * i)
+print("\n")
+
+# 46. Generate a pattern like: 1 2 3, 1 2, 1.
+rows = 3
+for i in range(rows, 0, -1):
+    for j in range(1, i+1):
+        print(j, end=" ")
+    print()
+print("\n")
+
+# 47. Print all three-digit numbers that are Armstrong numbers.
+for num in range(100, 1000):
+    temp = num
+    sum_pow = 0
+    while temp > 0:
+        sum_pow += (temp % 10) ** 3
+        temp //= 10
+    if sum_pow == num:
+        print(num, end=" ")
+print("\n")
+
+# 48. Create a pattern with prime numbers only.
+n = 5
+count, num = 0, 2
+while count < n:
+    for i in range(2, int(num**0.5)+1):
+        if num % i == 0:
+            break
+    else:
+        print(num, end=" ")
+        count += 1
+    num += 1
+print("\n")
+
+# 49. Create a pattern with even numbers only.
+rows = 5
+num = 2
+for i in range(1, rows+1):
+    for j in range(i):
+        print(num, end=" ")
+        num += 2
+    print()
+print("\n")
+
+# 50. Print number pyramid (1, 121, 12321...).
+rows = 5
+for i in range(1, rows+1):
+    for j in range(1, i+1):
+        print(j, end="")
+    for j in range(i-1, 0, -1):
+        print(j, end="")
+    print()
