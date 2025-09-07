@@ -3102,4 +3102,294 @@ def decrypt_file(src: str, dest: str, key: int = 3):
     with open(dest, "w") as f:
         f.write(decrypted)
 
+# ============================================
+# PART 10: Lists, Tuples, Dictionaries, Sets — 50 Logic-Building Questions
+# ============================================
 
+# --------------------------------------------
+# A. Lists (15 Questions)
+# --------------------------------------------
+
+# 1. Find the largest and smallest element in a list.
+def find_min_max(lst: list):
+    return min(lst), max(lst)
+
+# 2. Calculate the sum and average of list elements.
+def sum_and_avg(lst: list):
+    total = sum(lst)
+    return total, total / len(lst)
+
+# 3. Remove all duplicates from a list.
+def remove_duplicates_list(lst: list):
+    return list(dict.fromkeys(lst))
+
+# 4. Find the second largest number in a list.
+def second_largest(lst: list):
+    unique = sorted(set(lst))
+    return unique[-2] if len(unique) >= 2 else None
+
+# 5. Sort a list in ascending and descending order.
+def sort_list(lst: list):
+    return sorted(lst), sorted(lst, reverse=True)
+
+# 6. Merge two lists without using built-in functions.
+def merge_lists(lst1: list, lst2: list):
+    merged = []
+    for i in lst1:
+        merged.append(i)
+    for j in lst2:
+        merged.append(j)
+    return merged
+
+# 7. Count occurrences of each element in a list.
+from collections import Counter
+def count_occurrences(lst: list):
+    return Counter(lst)
+
+# 8. Separate even and odd numbers from a list.
+def separate_even_odd(lst: list):
+    even = [x for x in lst if x % 2 == 0]
+    odd = [x for x in lst if x % 2 != 0]
+    return even, odd
+
+# 9. Rotate a list by k elements.
+def rotate_list(lst: list, k: int):
+    k = k % len(lst)  # handle k > len(lst)
+    return lst[-k:] + lst[:-k]
+
+# 10. Remove all negative numbers from a list.
+def remove_negatives(lst: list):
+    return [x for x in lst if x >= 0]
+
+# 11. Reverse a list without using built-in methods.
+def reverse_list(lst: list):
+    rev = []
+    for i in range(len(lst) - 1, -1, -1):
+        rev.append(lst[i])
+    return rev
+
+# 12. Find all pairs in a list whose sum is equal to a given number.
+def find_pairs(lst: list, target: int):
+    pairs = []
+    n = len(lst)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if lst[i] + lst[j] == target:
+                pairs.append((lst[i], lst[j]))
+    return pairs
+
+# 13. Flatten a nested list.
+def flatten_list(nested: list):
+    flat = []
+    for i in nested:
+        if isinstance(i, list):
+            flat.extend(flatten_list(i))
+        else:
+            flat.append(i)
+    return flat
+
+# 14. Insert an element at a specific position in a list.
+def insert_at(lst: list, index: int, element):
+    return lst[:index] + [element] + lst[index:]
+
+# 15. Remove all occurrences of a specific element.
+def remove_all_occurrences(lst: list, element):
+    return [x for x in lst if x != element]
+
+# --------------------------------------------
+# B. Tuples (10 Questions)
+# --------------------------------------------
+
+# 16. Convert a list into a tuple and vice versa.
+my_list = [1, 2, 3, 4]
+my_tuple = tuple(my_list)       # List → Tuple
+new_list = list(my_tuple)       # Tuple → List
+print(my_tuple, new_list)
+
+# 17. Find the index of a specific value in a tuple.
+t = (10, 20, 30, 40, 50)
+print(t.index(30))
+
+# 18. Count the number of times an element occurs in a tuple.
+t = (1, 2, 2, 3, 4, 2, 5)
+print(t.count(2))
+
+# 19. Merge two tuples.
+t1 = (1, 2, 3)
+t2 = (4, 5, 6)
+merged = t1 + t2
+print(merged)
+
+# 20. Check if an element exists in a tuple.
+t = (5, 10, 15, 20)
+print(15 in t)
+
+# 21. Find the maximum and minimum values in a tuple.
+t = (10, 50, 5, 99, 32)
+print(max(t), min(t))
+
+# 22. Slice a tuple to get specific elements.
+t = (1, 2, 3, 4, 5, 6)
+print(t[1:4])   # elements from index 1 to 3
+
+# 23. Replace an element in a tuple (via conversion).
+t = (1, 2, 3, 4)
+temp = list(t)
+temp[2] = 99
+t = tuple(temp)
+print(t)
+
+# 24. Create a tuple of only even numbers from another tuple.
+t = (1, 2, 3, 4, 5, 6, 7, 8)
+even_tuple = tuple(x for x in t if x % 2 == 0)
+print(even_tuple)
+
+# 25. Unpack a tuple into individual variables.
+t = (100, 200, 300)
+a, b, c = t
+print(a, b, c)
+
+# --------------------------------------------
+# C. Dictionaries (15 Questions)
+# --------------------------------------------
+
+# 26. Count frequency of characters in a string using a dictionary.
+s = "programming"
+freq = {}
+for char in s:
+    freq[char] = freq.get(char, 0) + 1
+print(freq)
+
+# 27. Create a dictionary from two lists (keys and values).
+keys = ["name", "age", "city"]
+values = ["Alice", 25, "London"]
+d = dict(zip(keys, values))
+print(d)
+
+# 28. Sort a dictionary by keys or values.
+d = {"b": 3, "a": 1, "c": 2}
+print(dict(sorted(d.items())))               # By keys
+print(dict(sorted(d.items(), key=lambda x: x[1])))  # By values
+
+# 29. Merge two dictionaries.
+d1 = {"a": 1, "b": 2}
+d2 = {"c": 3, "d": 4}
+merged = {**d1, **d2}
+print(merged)
+
+# 30. Remove a key-value pair from a dictionary.
+d = {"name": "Ali", "age": 22}
+d.pop("age")
+print(d)
+
+# 31. Check if a key exists in a dictionary.
+d = {"a": 1, "b": 2}
+print("a" in d)
+
+# 32. Invert a dictionary (swap keys and values).
+d = {"a": 1, "b": 2}
+inverted = {v: k for k, v in d.items()}
+print(inverted)
+
+# 33. Count words in a sentence and store them in a dictionary.
+sentence = "this is a test this is fun"
+words = sentence.split()
+word_count = {}
+for w in words:
+    word_count[w] = word_count.get(w, 0) + 1
+print(word_count)
+
+# 34. Create a nested dictionary to represent student details.
+students = {
+    "101": {"name": "Ali", "age": 21, "grade": "A"},
+    "102": {"name": "Sara", "age": 22, "grade": "B"}
+}
+print(students)
+
+# 35. Access elements from a nested dictionary.
+print(students["101"]["name"])
+
+# 36. Add a new key-value pair to a dictionary.
+d = {"name": "Ali"}
+d["age"] = 22
+print(d)
+
+# 37. Update the value of an existing key.
+d["age"] = 23
+print(d)
+
+# 38. Remove duplicate values from a dictionary.
+d = {"a": 1, "b": 2, "c": 1}
+unique = {}
+for k, v in d.items():
+    if v not in unique.values():
+        unique[k] = v
+print(unique)
+
+# 39. Write a program to sum all the values in a dictionary.
+d = {"a": 10, "b": 20, "c": 30}
+print(sum(d.values()))
+
+# 40. Group values by keys (e.g., group students by grade).
+students = [("Ali", "A"), ("Sara", "B"), ("John", "A")]
+grouped = {}
+for name, grade in students:
+    grouped.setdefault(grade, []).append(name)
+print(grouped)
+
+# --------------------------------------------
+# D. Sets (10 Questions)
+# --------------------------------------------
+
+# 41. Find the union and intersection of two sets.
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a | b, a & b)
+
+# 42. Check if one set is a subset of another.
+a = {1, 2}
+b = {1, 2, 3, 4}
+print(a.issubset(b))
+
+# 43. Remove duplicates from a list using a set.
+lst = [1, 2, 2, 3, 4, 4, 5]
+unique = list(set(lst))
+print(unique)
+
+# 44. Find the difference between two sets.
+a = {1, 2, 3}
+b = {2, 3, 4}
+print(a - b)
+
+# 45. Add and remove elements from a set.
+s = {1, 2, 3}
+s.add(4)
+s.remove(2)
+print(s)
+
+# 46. Check if two sets have any elements in common.
+a = {1, 2, 3}
+b = {4, 5, 3}
+print(not a.isdisjoint(b))
+
+# 47. Create a set of unique characters from a string.
+s = "hello world"
+unique_chars = set(s)
+print(unique_chars)
+
+# 48. Find symmetric difference of two sets.
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a ^ b)
+
+# 49. Convert a set to a list and vice versa.
+s = {1, 2, 3}
+lst = list(s)
+new_set = set(lst)
+print(lst, new_set)
+
+# 50. Find common elements in multiple sets.
+a = {1, 2, 3, 4}
+b = {2, 3, 5}
+c = {2, 3, 6}
+print(a & b & c)
