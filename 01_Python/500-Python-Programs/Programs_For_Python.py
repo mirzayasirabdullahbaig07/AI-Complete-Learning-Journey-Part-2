@@ -2827,3 +2827,279 @@ def remove_duplicates_recursive(lst):
     first, *rest = lst
     filtered_rest = remove_duplicates_recursive([x for x in rest if x != first])
     return [first] + filtered_rest
+
+# ============================================
+# PART 9: Strings, Regex & File Handling — 50 Logic-Building Questions
+# ============================================
+
+# --------------------------------------------
+# A. String Manipulation (25 Questions)
+# --------------------------------------------
+
+# 1. Check if a string is a palindrome.
+def is_palindrome(s: str) -> bool:
+    return s == s[::-1]
+
+# 2. Count vowels and consonants in a string.
+def count_vowels_consonants(s: str):
+    vowels = "aeiouAEIOU"
+    v = sum(1 for ch in s if ch in vowels)
+    c = sum(1 for ch in s if ch.isalpha() and ch not in vowels)
+    return v, c
+
+# 3. Count the number of words in a sentence.
+def count_words(sentence: str) -> int:
+    return len(sentence.split())
+
+# 4. Reverse a string using slicing and loop.
+def reverse_string_slicing(s: str) -> str:
+    return s[::-1]
+
+def reverse_string_loop(s: str) -> str:
+    rev = ""
+    for ch in s:
+        rev = ch + rev
+    return rev
+
+# 5. Remove all special characters from a string.
+import re
+def remove_special_chars(s: str) -> str:
+    return re.sub(r'[^A-Za-z0-9 ]+', '', s)
+
+# 6. Find the most frequent character in a string.
+from collections import Counter
+def most_frequent_char(s: str) -> str:
+    return Counter(s).most_common(1)[0][0]
+
+# 7. Capitalize the first letter of each word in a string.
+def capitalize_words(s: str) -> str:
+    return s.title()
+
+# 8. Replace all spaces with a hyphen.
+def replace_spaces(s: str) -> str:
+    return s.replace(" ", "-")
+
+# 9. Convert all uppercase to lowercase and vice versa.
+def swap_case(s: str) -> str:
+    return s.swapcase()
+
+# 10. Check if two strings are anagrams.
+def are_anagrams(s1: str, s2: str) -> bool:
+    return sorted(s1) == sorted(s2)
+
+# 11. Remove duplicate characters from a string.
+def remove_duplicates(s: str) -> str:
+    return "".join(dict.fromkeys(s))
+
+# 12. Find all substrings of a given string.
+def all_substrings(s: str):
+    subs = []
+    for i in range(len(s)):
+        for j in range(i + 1, len(s) + 1):
+            subs.append(s[i:j])
+    return subs
+
+# 13. Check if a substring exists in a string.
+def substring_exists(s: str, sub: str) -> bool:
+    return sub in s
+
+# 14. Count the number of digits and alphabets in a string.
+def count_digits_alphabets(s: str):
+    digits = sum(ch.isdigit() for ch in s)
+    alphabets = sum(ch.isalpha() for ch in s)
+    return digits, alphabets
+
+# 15. Remove all whitespaces from a string.
+def remove_whitespaces(s: str) -> str:
+    return "".join(s.split())
+
+# 16. Count occurrences of a particular character.
+def count_char(s: str, char: str) -> int:
+    return s.count(char)
+
+# 17. Find the longest word in a sentence.
+def longest_word(sentence: str) -> str:
+    words = sentence.split()
+    return max(words, key=len)
+
+# 18. Sort words in a string alphabetically.
+def sort_words(s: str) -> str:
+    return " ".join(sorted(s.split()))
+
+# 19. Extract only digits from a string.
+def extract_digits(s: str) -> str:
+    return "".join(ch for ch in s if ch.isdigit())
+
+# 20. Find common characters between two strings.
+def common_chars(s1: str, s2: str):
+    return set(s1) & set(s2)
+
+# 21. Replace vowels in a string with a specific character.
+def replace_vowels(s: str, char: str = "*") -> str:
+    vowels = "aeiouAEIOU"
+    return "".join(char if ch in vowels else ch for ch in s)
+
+# 22. Find the ASCII value of each character in a string.
+def ascii_values(s: str):
+    return {ch: ord(ch) for ch in s}
+
+# 23. Convert a string into a list of characters.
+def string_to_list(s: str):
+    return list(s)
+
+# 24. Convert a list of strings into a single string.
+def list_to_string(lst: list) -> str:
+    return "".join(lst)
+
+# 25. Check if all characters in a string are unique.
+def all_unique(s: str) -> bool:
+    return len(set(s)) == len(s)
+
+# --------------------------------------------
+# B. Regex & File Handling (25 Questions)
+# --------------------------------------------
+
+import re
+import shutil
+
+# 26. Use regex to extract all email addresses from a text.
+def extract_emails(text: str):
+    return re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
+
+# 27. Use regex to extract phone numbers from a document.
+def extract_phone_numbers(text: str):
+    return re.findall(r"\+?\d[\d\s-]{7,}\d", text)
+
+# 28. Use regex to check if a string is a valid URL.
+def is_valid_url(url: str) -> bool:
+    pattern = r"^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+\.[a-z]{2,}(\S*)?$"
+    return re.match(pattern, url) is not None
+
+# 29. Use regex to check if a password is strong.
+# Rule: At least 8 chars, one uppercase, one lowercase, one digit, one special char
+def is_strong_password(password: str) -> bool:
+    pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+    return re.match(pattern, password) is not None
+
+# 30. Use regex to extract hashtags from a tweet.
+def extract_hashtags(tweet: str):
+    return re.findall(r"#\w+", tweet)
+
+# 31. Use regex to extract dates in DD-MM-YYYY format.
+def extract_dates(text: str):
+    return re.findall(r"\b\d{2}-\d{2}-\d{4}\b", text)
+
+# 32. Validate an IP address using regex.
+def is_valid_ip(ip: str) -> bool:
+    pattern = r"^((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.|$)){4}$"
+    return re.match(pattern, ip) is not None
+
+# 33. Use regex to extract all capital words from a sentence.
+def extract_capital_words(text: str):
+    return re.findall(r"\b[A-Z]{2,}\b", text)
+
+# 34. Match all words starting with a vowel using regex.
+def words_starting_with_vowel(text: str):
+    return re.findall(r"\b[aeiouAEIOU]\w*", text)
+
+# 35. Use regex to remove extra spaces from a string.
+def remove_extra_spaces(s: str) -> str:
+    return re.sub(r"\s+", " ", s).strip()
+
+# 36. Write a program to create a new file and write some text.
+def create_file(filename: str, text: str):
+    with open(filename, "w") as f:
+        f.write(text)
+
+# 37. Write a program to read a file line by line.
+def read_file_lines(filename: str):
+    with open(filename, "r") as f:
+        return f.readlines()
+
+# 38. Count the number of words in a file.
+def count_words_in_file(filename: str) -> int:
+    with open(filename, "r") as f:
+        return len(f.read().split())
+
+# 39. Count the number of lines in a file.
+def count_lines_in_file(filename: str) -> int:
+    with open(filename, "r") as f:
+        return sum(1 for _ in f)
+
+# 40. Write a program to append data to a file.
+def append_to_file(filename: str, text: str):
+    with open(filename, "a") as f:
+        f.write(text)
+
+# 41. Search for a word in a file.
+def search_word_in_file(filename: str, word: str) -> bool:
+    with open(filename, "r") as f:
+        return word in f.read()
+
+# 42. Replace a word with another word in a file.
+def replace_word_in_file(filename: str, old: str, new: str):
+    with open(filename, "r") as f:
+        text = f.read()
+    text = text.replace(old, new)
+    with open(filename, "w") as f:
+        f.write(text)
+
+# 43. Remove all blank lines from a file.
+def remove_blank_lines(filename: str):
+    with open(filename, "r") as f:
+        lines = [line for line in f if line.strip()]
+    with open(filename, "w") as f:
+        f.writelines(lines)
+
+# 44. Write contents of one file into another.
+def copy_file_content(src: str, dest: str):
+    with open(src, "r") as f1, open(dest, "w") as f2:
+        f2.write(f1.read())
+
+# 45. Count frequency of each word in a file.
+from collections import Counter
+def word_frequency_in_file(filename: str):
+    with open(filename, "r") as f:
+        words = f.read().split()
+    return Counter(words)
+
+# 46. Sort the content of a file alphabetically.
+def sort_file_content(filename: str):
+    with open(filename, "r") as f:
+        words = f.read().split()
+    words.sort()
+    with open(filename, "w") as f:
+        f.write(" ".join(words))
+
+# 47. Remove duplicate lines from a file.
+def remove_duplicate_lines(filename: str):
+    with open(filename, "r") as f:
+        lines = list(dict.fromkeys(f.readlines()))
+    with open(filename, "w") as f:
+        f.writelines(lines)
+
+# 48. Create a program to backup a text file.
+def backup_file(src: str, backup: str):
+    shutil.copy(src, backup)
+
+# 49. Create a program to merge two files.
+def merge_files(file1: str, file2: str, output: str):
+    with open(file1, "r") as f1, open(file2, "r") as f2, open(output, "w") as out:
+        out.write(f1.read() + "\n" + f2.read())
+
+# 50. Write a program to encrypt and decrypt a text file using a basic cipher.
+def encrypt_file(src: str, dest: str, key: int = 3):
+    with open(src, "r") as f:
+        text = f.read()
+    encrypted = "".join(chr((ord(ch) + key) % 256) for ch in text)
+    with open(dest, "w") as f:
+        f.write(encrypted)
+
+def decrypt_file(src: str, dest: str, key: int = 3):
+    with open(src, "r") as f:
+        text = f.read()
+    decrypted = "".join(chr((ord(ch) - key) % 256) for ch in text)
+    with open(dest, "w") as f:
+        f.write(decrypted)
+
+
